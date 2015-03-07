@@ -1,5 +1,5 @@
 ---
-Title: Databases using SQL
+title: Databases using SQL
 ---
 
 Databases using SQL
