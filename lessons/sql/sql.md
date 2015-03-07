@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: Databases using SQL
-root: .
+root: lessons/sql
 ---
 
 Databases using SQL
