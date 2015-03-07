@@ -1,4 +1,5 @@
 ---
+layout: lesson
 title: Databases using SQL
 ---
 
