@@ -4,9 +4,6 @@ title: Databases using SQL
 root: ../..
 ---
 
-Databases using SQL
-===================
-
 Setup
 -----
 
