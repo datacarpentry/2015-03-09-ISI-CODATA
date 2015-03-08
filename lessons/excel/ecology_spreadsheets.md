@@ -98,9 +98,9 @@ The cardinal rules of using spreadsheet programs for data:
 
 ### Spreadsheet programs
 
-- LibreOffice - used in these lessons because it's a free, open source
-spreadsheet program
 - Microsoft Excel
+- Google Sheets
+- LibreOffice
 - Gnumeric
 - OpenOffice.org
 
@@ -111,7 +111,7 @@ for thinking about spreadsheets is the same.
 
 ### Formatting data tables in Spreadsheets
 
-We commonly use spreadsheets as lab notebooks
+We commonly use spreadsheets as lab notebooks.
 
 Rely on context, notes in the margin, spatial
 layout of data and fields to convey information.
@@ -162,11 +162,11 @@ and each other.
 
 ### Rule of thumb
 
-The rule of thumb, when setting up a datasheet, is
-- columns= fields
-- rows = observations
-- cells=data (values)
+The rules of thumb, when setting up a datasheet, are
 
+- columns = fields
+- rows = observations
+- cells = data (values)
 - no multiple tables within one spreadsheet
 
 ---
@@ -181,12 +181,6 @@ Let's try this with an example using some of our sample data:
 You can do that by simply opening the `*.csv` files in Excel.
 Excel will automatically try to fit the data from the `*.csv` file and put
 the first value in column A and the second value in column B.
-
----
-
-### The Dataset
-
-
 
 ---
 
