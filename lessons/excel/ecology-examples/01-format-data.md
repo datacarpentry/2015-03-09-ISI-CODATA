@@ -20,7 +20,12 @@ There are two simple rules you should keep in mind when entering your data into 
 
 So, you can see how these two points apply directly to how you set up your spreadsheets. 
 
-The rule of thumb, when setting up a datasheet, is columns= variables, rows = observations, cells=data (values).
+The rule of thumb, when setting up a datasheet, is: 
+
+- columns = variables
+- rows = observations
+- cells = data (values)
+
 Let's try this with an example using some of our sample data: [a list of species](../../../data/biology/species.csv) and [a list of plots](../../../data/biology/plots.csv). You can do that by simply opening the `*.csv` files in Excel. Excel will automatically try to fit the data from the `*.csv` file and put the first value in column A and the second value in column B. 
 
 The output should look like this:
@@ -51,5 +56,9 @@ Your data sheet might get very long over the course of experiment. This makes it
 
 [Show an example of how to freeze panes in Excel]
 
+
+#### Exercise: Issues with spreadsheet formatting ####
+
+Download [Genetic_screen.xls](../../../data/Genetic_screen.xls). With a someone nearby, discuss what you think are some of the issues with this spreadsheet. Start with the issues we have discussed so far.
 
 Previous: [Introduction](00-intro.html)  Next: [Common formatting mistakes by spreadsheet users.](02-common-mistakes.html)

@@ -68,4 +68,8 @@ General best practice is to avoid adding characters such as newlines, tabs, and 
 
 [ include sample of problematic data, and cleaned version ]
 
+#### Exercise: Correct a spreadsheet ####
+
+Return to the file [Genetic_screen.xls](../../../data/Genetic_screen.xls). Can you now identify any additional issues? Discuss how you might fix these problems. Reformat the data to resolve as many issues as you can.
+
 Previous: [Formatting data tables in spreadsheets.](01-format-data.html) Next: [Dates as data.](03-dates-as-data.html)
