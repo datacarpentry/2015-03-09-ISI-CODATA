@@ -21,7 +21,37 @@ knitr::opts_chunk$set(results='hide', fig.path='img/r-lesson-')
 
 Here is an example of a script, which your instructor will discuss.
 
-![Example of a simple R script](img/r_starting_example_script.png)
+```{r, eval=FALSE}
+### This function checks that all the plot IDs used in the survey file (`surveys.csv`)
+### are defined in the plots file (`plots.csv`). If all the plot IDs are found, the
+### function shows a message and returns `TRUE`, otherwise the function emits a 
+### warning, and returns `FALSE`
+check_plots <- function(survey_file="data/biology/surveys.csv",
+                        plot_file="data/biology/plots.csv") {
+  ## load files
+  srvy <- read.csv(file=survey_file, stringsAsFactors=FALSE)
+  plts <- read.csv(file=plot_file, stringsAsFactors=FALSE)
+  
+  ## Get unique plot_id
+  unique_srvy_plots <- unique(srvy$plot_id)
+  
+  if (all(unique_srvy_plots %in% plts$plot_id)) {
+    message("Everything looks good.")
+    return(TRUE)
+  } else {
+    warning("Something is wrong: some plot IDs not defined.")
+    return(FALSE)
+  }
+}
+
+# Call the function, using the default value for plot_file
+check_plots(survey_file="latest_surveys.csv")
+
+# Find the number of rows and columns in the survey data
+surveys <- read.csv(file="data/biology/surveys.csv", stringsAsFactors=FALSE)
+nrow(surveys)
+ncol(surveys)
+```
 
 ## Creating objects
 
