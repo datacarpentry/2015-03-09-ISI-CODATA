@@ -33,7 +33,7 @@ There are a number of different database management systems for working with rel
 The data
 --------
 
-For this lesson we will import the CSV files **surveys.csv**, **plots.csv** and **species.csv**. The complete database is also available as **portal_mammals.sqlite**, but you may not need this.
+For this lesson we will import the CSV files [surveys.csv](../../data/biology/surveys.csv), [plots.csv](../../data/biology/plots.csv) and [species.csv](../../data/biology/species.csv). The complete database is also available as [portal_mammals.sqlite](../../data/biology/portal_mammals.sqlite), but you may not need this.
 
 This is data on a small mammal community in southern Arizona over the last 35
 years. This is part of a larger project studying the effects of rodents and
