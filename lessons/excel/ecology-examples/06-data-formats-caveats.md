@@ -61,6 +61,25 @@ Cleaning up datasets is one of major problems in many scientific disciplines. Th
 
 ###Tab Separated Values format
 
-###Other delimiters for data formats
+When working with tabular data on the command line, using tabs as delimiters can make spreadsheets much easier to read. You may also choose to use tabs if you expect your data to contain commas. Here is an example of the same data in comma and then tab separated format:
+
+Comma Separated (.csv)
+
+	species_id,genus,species,taxa
+	AB,Amphispiza,bilineata,Bird
+	AS,Ammodramus,savannarum,Bird
+	CM,Calamospiza,melanocorys,Bird
+	CQ,Callipepla,squamata,Bird
+	CS,Crotalus,scutalatus,Reptile
+	
+Tab separated (.tsv)
+
+	species_id	genus	species	taxa
+	AB	Amphispiza	bilineata	Bird
+	AS	Ammodramus	savannarum	Bird
+	CM	Calamospiza	melanocorys	Bird
+	CQ	Callipepla	squamata	Bird
+	CS	Crotalus	scutalatus	Reptile
+
 
 Previous: [Exporting data from spreadsheets.](05-exporting-data.html) Next: [Open Refine Deomonstration](../../open_refine/open-refine-demo.html)
