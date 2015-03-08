@@ -19,15 +19,7 @@ knitr::opts_chunk$set(results='hide', fig.path='img/r-lesson-')
 
 ## The R syntax
 
-_Start by showing an example of a script_
-
-* Point to the different parts:
-  - a function
-  - the assignment operator `<-`
-  - the `=` for arguments
-  - the comments `#` and how they are used to document function and its content
-  - the `$` operator
-* Point to indentation and consistency in spacing to improve clarity
+Here is an example of a script, which your instructor will discuss.
 
 ![Example of a simple R script](img/r_starting_example_script.png)
 
