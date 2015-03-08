@@ -1,10 +1,8 @@
 ---
 layout: lesson
-title: Databases using SQL
+title: Using spreadsheet programs for scientific data
 root: ../..
 ---
-
-# Using spreadsheet programs for scientific data #
 
 Contributors: Christie Bahlai, Aleksandra Pawlik, Tracy Teal
 
