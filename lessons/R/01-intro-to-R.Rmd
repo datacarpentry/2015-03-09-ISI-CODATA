@@ -19,6 +19,15 @@ knitr::opts_chunk$set(results='hide', fig.path='img/r-lesson-')
 
 ## The R syntax
 
+<!--Start by showing an example of a script.
+Point to the different parts:
+  - a function
+  - the assignment operator `<-`
+  - the `=` for arguments
+  - the comments `#` and how they are used to document function and its content
+  - the `$` operator
+Point to indentation and consistency in spacing to improve clarity -->
+
 Here is an example of a script, which your instructor will discuss.
 
 ```{r, eval=FALSE}
@@ -53,10 +62,10 @@ nrow(surveys)
 ncol(surveys)
 ```
 
-## Creating objects
+## Creating variables
 
 ```{r, echo=FALSE, purl=TRUE}
-### Creating objects (assignments)
+### Creating variables (assignments)
 ```
 
 You can get output from R simply by typing in math in the console
@@ -67,20 +76,20 @@ You can get output from R simply by typing in math in the console
 ```
 
 However, to do useful and interesting things, we need to assign _values_ to
-_objects_. To create objects, we need to give it a name followed by the
+_variables_. To create a variable, we need to give it a name followed by the
 assignment operator `<-` and the value we want to give it:
 
 ```{r, purl=FALSE}
 weight_kg <- 55
 ```
 
-Objects can be given any name such as `x`, `current_temperature`, or
+Variables can be given any name such as `x`, `current_temperature`, or
 `subject_id`. You want your object names to be *explicit* so they help you
 remember what they represent.
 
-You don't want variable names to be too long, but they can be somewhat long
+You don't want variable names to be too long, but they can be somewhat long. 
 RStudio, and many other programs have a feature called **tab completion**.
-Start typing the name of a function, or variable and hit TAB, and RStudio will
+Start typing the name of a function or variable and hit TAB, and RStudio will
 complete the name if the object is stored in memory.  If it's ambiguous, it
 will give you options
 
@@ -88,7 +97,7 @@ will give you options
 
 Tab completion lets you err on the size of more transparent names.
 
-Variable names cannot start with a number (`2x` is not valid but `x2` is). R is case sensitive
+Variable names cannot start with a number (`2x` is not valid but `x2` is). R is case-sensitive
 (e.g., `weight_kg` is different from `Weight_kg`). There are some names that
 cannot be used because they represent the names of fundamental functions in R
 (e.g., `if`, `else`, `for`, see
@@ -98,8 +107,6 @@ other function names (e.g., `c`, `T`, `mean`, `data`, `df`, `weights`). In doubt
 check the help to see if the name is already in use. It's also best to avoid
 dots (`.`) within a variable name as in `my.dataset`. It is also recommended to
 use nouns for variable names, and verbs for function names.
-
-
 
 When assigning a value to an object, R does not print anything. You can force to
 print the value by using parentheses or by typing the name:

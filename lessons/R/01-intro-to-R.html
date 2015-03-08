@@ -66,6 +66,15 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 </blockquote>
 <div id="the-r-syntax" class="section level2">
 <h2>The R syntax</h2>
+<!--Start by showing an example of a script.
+Point to the different parts:
+  - a function
+  - the assignment operator `<-`
+  - the `=` for arguments
+  - the comments `#` and how they are used to document function and its content
+  - the `$` operator
+Point to indentation and consistency in spacing to improve clarity -->
+
 <p>Here is an example of a script, which your instructor will discuss.</p>
 <pre class="r"><code>### This function checks that all the plot IDs used in the survey file (`surveys.csv`)
 ### are defined in the plots file (`plots.csv`). If all the plot IDs are found, the
@@ -97,15 +106,15 @@ surveys &lt;- read.csv(file=&quot;data/biology/surveys.csv&quot;, stringsAsFacto
 nrow(surveys)
 ncol(surveys)</code></pre>
 </div>
-<div id="creating-objects" class="section level2">
-<h2>Creating objects</h2>
+<div id="creating-variables" class="section level2">
+<h2>Creating variables</h2>
 <p>You can get output from R simply by typing in math in the console</p>
 <pre class="r"><code>3 + 5
 12/7</code></pre>
-<p>However, to do useful and interesting things, we need to assign <em>values</em> to <em>objects</em>. To create objects, we need to give it a name followed by the assignment operator <code>&lt;-</code> and the value we want to give it:</p>
+<p>However, to do useful and interesting things, we need to assign <em>values</em> to <em>variables</em>. To create a variable, we need to give it a name followed by the assignment operator <code>&lt;-</code> and the value we want to give it:</p>
 <pre class="r"><code>weight_kg &lt;- 55</code></pre>
-<p>Objects can be given any name such as <code>x</code>, <code>current_temperature</code>, or <code>subject_id</code>. You want your object names to be <em>explicit</em> so they help you remember what they represent.</p>
-<p>You don’t want variable names to be too long, but they can be somewhat long RStudio, and many other programs have a feature called <strong>tab completion</strong>. Start typing the name of a function, or variable and hit TAB, and RStudio will complete the name if the object is stored in memory. If it’s ambiguous, it will give you options</p>
+<p>Variables can be given any name such as <code>x</code>, <code>current_temperature</code>, or <code>subject_id</code>. You want your object names to be <em>explicit</em> so they help you remember what they represent.</p>
+<p>You don’t want variable names to be too long, but they can be somewhat long. RStudio, and many other programs have a feature called <strong>tab completion</strong>. Start typing the name of a function or variable and hit TAB, and RStudio will complete the name if the object is stored in memory. If it’s ambiguous, it will give you options</p>
 <!-- Demonstrate this with `weight_kg`, `help()`, etc. -->
 
 <p>Tab completion lets you err on the size of more transparent names.</p>
