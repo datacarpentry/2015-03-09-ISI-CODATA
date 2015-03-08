@@ -1,5 +1,8 @@
-
-# Data Carpentry Open Refine Demo
+---
+layout: lesson
+title: Data Carpentry Open Refine Demo
+root: ../..
+---
 
 --------------------------------------------------
 
