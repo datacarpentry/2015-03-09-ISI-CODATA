@@ -68,4 +68,10 @@ Add the follwing to the file ([see the detailed tutorial](http://nicercode.githu
 3. Use [dos2unix](http://dos2unix.sourceforge.net/) (available on OSX, *nix, and Cygwin) on local files to standardize line endings.
 
 
+#### Exercise: Exporting a spreadsheet ####
+
+You should now have the orginal [Genetic_screen.xls](../../../data/Genetic_screen.xls) and your fixed version. Try exporting each of these files as .csv format. Then open them in a text editor and compare the results between the two files. Are there any changes you need to make to your fixed version?
+
+Next, open each of your csv files in Excel (or your spreadsheet editor of choice). Did anything go wrong? 
+
 Previous: [Basic quality control and data manipulation in spreadsheets.](04-quality-control.html) Next [Data Formats Caveats](06-data-formats-caveats.html)
