@@ -50,7 +50,7 @@ mean(surveys$wgt)
 
 Hmm, we just get `NA`. That's because we don't have the weight for every animal
 and missing data is recorded as `NA`. By default, all R functions operating on a
-vector that contains missing data will return NA. It's a way to make sure that
+vector that contains missing data will return `NA`. It's a way to make sure that
 users know they have missing data, and make a conscious decision on how to deal
 with it.
 
@@ -124,7 +124,7 @@ many animals have not had their weights recorded?
 What if we want the maximum weight for all animals, or the average for each
 plot?
 
-R comes with convenient functions to do this kind of operations, functions in
+R comes with convenient functions to do this kind of operation: functions in
 the `apply` family.
 
 For instance, `tapply()` allows us to repeat a function across each level of a
