@@ -4,22 +4,6 @@ title: Data Carpentry Open Refine Demo
 root: ../..
 ---
 
---------------------------------------------------
-
-# Objectives
-
-* Motivate participants to clean, organize, enhance data before insert into a database or merging data with other data files.
-* Introduce participants to Open Refine as a powerful data-cleaning tool.
-* Encourage dataset exploration; look at the data with the visualization tools in Open Refine.
-* Introduce concept of facets
-* Show split columns by defined separator
-* Show power of include / exclude, sort by name / count
-* Show the power of clustering algorithms to reveal data patterns, data snafus
-* If time, show call to an API, a web service (JSON example here from a locality georeferencing service)
-* If time, show how to parse the JSON returned from the service.
-* Refine provides a gentle introduction to SELECT DISTINCT, COUNT, ORDER BY, GROUP BY, and other SQL concepts in a visual way. Covering Refine first provides the SQL instructor with examples to refer back to - giving the students a reference point for understanding SQL.
-* Show the power of undo / redo.
-
 ----------------------------------------------------
 
 # Motivations for the Open Refine Lesson
@@ -92,10 +76,6 @@ _Once Refine is open, you'll be asked if you want to Create, Open, or Import a P
 * This will reveal an error in a few names that have spaces at the beginning (so-called leading white space).
 * * These can be easily removed with another Refine feature in the column drop-down choices. See drop-down: Edit cells > Common transforms > Remove leading and trailing whitespace
 * To Undo create columns, look just above the scientificName cluster in the left side of the screen. Click where it says Undo / Redo. Click back one step (all steps, all changes are saved here). Just go back to the previous step and click. The extra columns will be gone.
-
-## Call a Service (this example is set up to georeference locality data, but could use any service).
-
-* For this demo, the instructor may find a web service appropriate to demonstrate.
 
 ## Scripts
 
