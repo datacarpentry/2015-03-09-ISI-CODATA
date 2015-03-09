@@ -233,5 +233,6 @@ Vectors are one of the many **data structures** that R uses. Other important
 ones are lists (`list`), matrices (`matrix`), data frames (`data.frame`) and
 factors (`factor`).
 
-We are now going to use our "surveys" dataset to explore the `data.frame` data
-structure.
+We are now going to use our "surveys" dataset to explore the `data.frame` data structure.
+
+Previous: [Before we start](00-before-we-start.html)  Next: [Starting with data](02-starting-with-data.html)

@@ -132,16 +132,6 @@ species_mean &lt;- tapply(surveys_complete$wgt, surveys_complete$species, mean)<
 <li><code>min_wgt</code> the minimum weight for each species</li>
 <li><code>max_wgt</code> the maximum weight for each species</li>
 </ul>
-<p><strong>Answers</strong></p>
-<pre class="r"><code>species_max &lt;- tapply(surveys_complete$wgt, surveys_complete$species, max)
-species_min &lt;- tapply(surveys_complete$wgt, surveys_complete$species, min)
-species_sd &lt;- tapply(surveys_complete$wgt, surveys_complete$species, sd)
-nlevels(surveys_complete$species) # or length(species_mean)
-surveys_summary &lt;- data.frame(species=levels(surveys_complete$species),
-                              mean_wgt=species_mean,
-                              sd_wgt=species_sd,
-                              min_wgt=species_min,
-                              max_wgt=species_max)</code></pre>
 </div>
 </div>
 <div id="creating-a-barplot" class="section level1">
@@ -183,6 +173,7 @@ barplot(surveys_summary$mean_wgt, horiz=TRUE, las=1,
         col=c(&quot;lavender&quot;, &quot;lightblue&quot;), xlab=&quot;Weight (g)&quot;,
         main=&quot;Mean weight per species&quot;)
 dev.off()</code></pre>
+<p>Previous: <a href="04-manipulating-data.html">Manipulating data</a> Next: <a href="06-getting-help.html">Getting help</a></p>
 </div>
 </div>
 

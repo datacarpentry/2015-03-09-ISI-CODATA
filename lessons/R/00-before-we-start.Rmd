@@ -187,3 +187,5 @@ the help files across all packages available.
 
 **We will get into more detail on getting help on more complex problems and 
 *problem solving*  at the end of the class.**
+
+Next: [Introduction to R](01-intro-to-R.html)
