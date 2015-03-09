@@ -96,7 +96,7 @@ Based on the output of `str(surveys)`, can you answer the following questions?
 As you can see, the columns `species` and `sex` are of a special class called
 `factor`. Before we learn more about the `data.frame` class, we are going to
 talk about factors. They are very useful but not necessarily intuitive, and
-therefore require some attention. We will talk about data frames in more detail 
+therefore require some attention. We will talk about data frames in more detail
 in the next lesson.
 
 
@@ -173,11 +173,12 @@ as.numeric(levels(f))[f]    ## The recommended way.
 ### Challenge
 
 The function `table()` tabulates observations and can be used to create
-bar plots quickly. For instance:
+bar plots quickly.
+
+***Question: How can you recreate this plot but having "control" being listed last instead of first?***
 
 ```{r, results='show', purl=TRUE}
-## Question: How can you recreate this plot but by having "control"
-## being listed last instead of first?
+## Create a barplot, but without controling the order of the factors
 exprmt <- factor(c("treat1", "treat2", "treat1", "treat3", "treat1", "control",
                    "treat1", "treat2", "treat3"))
 table(exprmt)

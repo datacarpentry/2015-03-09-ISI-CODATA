@@ -138,9 +138,9 @@ as.numeric(levels(f))[f]    ## The recommended way.</code></pre>
 </div>
 <div id="challenge-1" class="section level3">
 <h3>Challenge</h3>
-<p>The function <code>table()</code> tabulates observations and can be used to create bar plots quickly. For instance:</p>
-<pre class="r"><code>## Question: How can you recreate this plot but by having &quot;control&quot;
-## being listed last instead of first?
+<p>The function <code>table()</code> tabulates observations and can be used to create bar plots quickly.</p>
+<p><strong><em>Question: How can you recreate this plot but having “control” being listed last instead of first?</em></strong></p>
+<pre class="r"><code>## Create a barplot, but without controling the order of the factors
 exprmt &lt;- factor(c(&quot;treat1&quot;, &quot;treat2&quot;, &quot;treat1&quot;, &quot;treat3&quot;, &quot;treat1&quot;, &quot;control&quot;,
                    &quot;treat1&quot;, &quot;treat2&quot;, &quot;treat3&quot;))
 table(exprmt)</code></pre>
