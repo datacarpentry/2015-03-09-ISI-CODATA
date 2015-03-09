@@ -19,22 +19,53 @@ knitr::opts_chunk$set(results='hide', fig.path='img/r-lesson-')
 
 ## The R syntax
 
-_Start by showing an example of a script_
-
-* Point to the different parts:
+<!--Start by showing an example of a script.
+Point to the different parts:
   - a function
   - the assignment operator `<-`
   - the `=` for arguments
   - the comments `#` and how they are used to document function and its content
   - the `$` operator
-* Point to indentation and consistency in spacing to improve clarity
+Point to indentation and consistency in spacing to improve clarity -->
 
-![Example of a simple R script](img/r_starting_example_script.png)
+Here is an example of a script, which your instructor will discuss.
 
-## Creating objects
+```{r, eval=FALSE}
+### This function checks that all the plot IDs used in the survey file (`surveys.csv`)
+### are defined in the plots file (`plots.csv`). If all the plot IDs are found, the
+### function shows a message and returns `TRUE`, otherwise the function emits a 
+### warning, and returns `FALSE`
+check_plots <- function(survey_file="data/biology/surveys.csv",
+                        plot_file="data/biology/plots.csv") {
+  ## load files
+  srvy <- read.csv(file=survey_file, stringsAsFactors=FALSE)
+  plts <- read.csv(file=plot_file, stringsAsFactors=FALSE)
+  
+  ## Get unique plot_id
+  unique_srvy_plots <- unique(srvy$plot_id)
+  
+  if (all(unique_srvy_plots %in% plts$plot_id)) {
+    message("Everything looks good.")
+    return(TRUE)
+  } else {
+    warning("Something is wrong: some plot IDs not defined.")
+    return(FALSE)
+  }
+}
+
+# Call the function, using the default value for plot_file
+check_plots(survey_file="latest_surveys.csv")
+
+# Find the number of rows and columns in the survey data
+surveys <- read.csv(file="data/biology/surveys.csv", stringsAsFactors=FALSE)
+nrow(surveys)
+ncol(surveys)
+```
+
+## Creating variables
 
 ```{r, echo=FALSE, purl=TRUE}
-### Creating objects (assignments)
+### Creating variables (assignments)
 ```
 
 You can get output from R simply by typing in math in the console
@@ -45,20 +76,20 @@ You can get output from R simply by typing in math in the console
 ```
 
 However, to do useful and interesting things, we need to assign _values_ to
-_objects_. To create objects, we need to give it a name followed by the
+_variables_. To create a variable, we need to give it a name followed by the
 assignment operator `<-` and the value we want to give it:
 
 ```{r, purl=FALSE}
 weight_kg <- 55
 ```
 
-Objects can be given any name such as `x`, `current_temperature`, or
+Variables can be given any name such as `x`, `current_temperature`, or
 `subject_id`. You want your object names to be *explicit* so they help you
 remember what they represent.
 
-You don't want variable names to be too long, but they can be somewhat long
+You don't want variable names to be too long, but they can be somewhat long. 
 RStudio, and many other programs have a feature called **tab completion**.
-Start typing the name of a function, or variable and hit TAB, and RStudio will
+Start typing the name of a function or variable and hit TAB, and RStudio will
 complete the name if the object is stored in memory.  If it's ambiguous, it
 will give you options
 
@@ -66,7 +97,7 @@ will give you options
 
 Tab completion lets you err on the size of more transparent names.
 
-Variable names cannot start with a number (`2x` is not valid but `x2` is). R is case sensitive
+Variable names cannot start with a number (`2x` is not valid but `x2` is). R is case-sensitive
 (e.g., `weight_kg` is different from `Weight_kg`). There are some names that
 cannot be used because they represent the names of fundamental functions in R
 (e.g., `if`, `else`, `for`, see
@@ -76,8 +107,6 @@ other function names (e.g., `c`, `T`, `mean`, `data`, `df`, `weights`). In doubt
 check the help to see if the name is already in use. It's also best to avoid
 dots (`.`) within a variable name as in `my.dataset`. It is also recommended to
 use nouns for variable names, and verbs for function names.
-
-
 
 When assigning a value to an object, R does not print anything. You can force to
 print the value by using parentheses or by typing the name:

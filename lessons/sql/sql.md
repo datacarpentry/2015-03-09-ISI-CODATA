@@ -7,61 +7,54 @@ root: ../..
 Setup
 -----
 
-1. Install Firefox
+1. Open Firefox.
 2. Install the SQLite Manager add on **Tools -> Add-ons -> Search -> SQLite
-Manager -> Install -> Restart**
-3. Download the [Portal Database](https://github.com/datacarpentry/datacarpentry/blob/master/data/biology/portal_mammals.sqlite)
-4. Open SQLite Manage **Firefox Button -> Web Developer -> SQLite Manager**
-
+Manager -> Install -> Restart**.
+3. Open SQLite Manager. This may depend on your version and operating system. Within Firefox, try **Web Developer -> SQLite Manager** or **Tools -> SQLite Manager**.
 
 Relational databases
 --------------------
 
-* Relational databases store data in tables with fields (columns) and records
-  (rows)
-* Data in tables has types, just like in Python, and all values in a field have
-  the same type ([list of data types](#datatypes))
-* Queries let us look up data or make calculations based on columns
-* The queries are distinct from the data, so if we change the data we can just
-  rerun the query
+Relational databases store data in *tables*. Each table has *fields* (columns) and *records* (rows). Conceptually, a table is a lot like a spreadsheet.
+
+Data in tables has types, just like in R or Python, and all values in a field have the same type ([list of data types](#datatypes)).
+
+We can *query* a database to retrieve the data we are interested in or to make calculations based on columns. The queries are distinct from the data, so if we change the data we can just rerun the query. Queries can retrieve and merge related data from multiple tables.
+
+Relational databases can have very good performance - i.e. it is fast to run a query.
 
 
 Database Management Systems
 ---------------------------
 
-There are a number of different database management systems for working with relational
-data. We're going to use SQLite today, but basically everything we teach you
-will apply to the other database systems as well (e.g., MySQL, PostgreSQL, MS
-Access, Filemaker Pro). The only things that will differ are the details of
-exactly how to import and export data and the [details of data types](#datatypediffs).
+There are a number of different database management systems for working with relational data. We're going to use SQLite today, but basically everything we teach you will apply to the other database systems as well (e.g., MySQL, PostgreSQL, MS Access, Filemaker Pro). The only things that will differ are the details of exactly how to import and export data and the [details of data types](#datatypediffs).
 
 
 The data
 --------
 
+For this lesson we will import the CSV files [surveys.csv](../../data/biology/surveys.csv), [plots.csv](../../data/biology/plots.csv) and [species.csv](../../data/biology/species.csv). The complete database is also available as [portal_mammals.sqlite](../../data/biology/portal_mammals.sqlite), but you may not need this.
+
 This is data on a small mammal community in southern Arizona over the last 35
-years.  This is part of a larger project studying the effects of rodents and
-ants on the plant community.  The rodents are sampled on a series of 24 plots,
+years. This is part of a larger project studying the effects of rodents and
+ants on the plant community. The rodents are sampled on a series of 24 plots,
 with different experimental manipulations of which rodents are allowed to access
 the plots.
 
-This is a real dataset that has been used in over 100 publications.  I've
+This is a real dataset that has been used in over 100 publications.  We've
 simplified it just a little bit for the workshop, but you can download the
 [full dataset](http://esapubs.org/archive/ecol/E090/118/) and work with it using
 exactly the same tools we'll learn about today.
 
 
-Database Design
----------------
+Database Design Fundamentals
+----------------------------
 
-1. Order doesn't matter
-2. Every row-column combination contains a single *atomic* value, i.e., not
-   containing parts we might want to work with separately.
-3. One field per type of information
-4. No redundant information
-     * Split into separate tables with one table per class of information
-	 * Needs an identifier in common between tables – shared column - to
-       reconnect (foreign key).
+* Order of rows and columns doesn't matter.
+* Every row-column combination contains a single *atomic* value, i.e., not containing parts we might want to work with separately.
+* There should be no redundant information. Split information into separate tables with one table per class of information. This is more efficient, and makes it much easier to maintain data correctly. Removing redundancy means we have removed the potential for inconsistent data.
+* A row can be indexed by a *primary key*, which should be unique within the table.
+* A field in one table can correspond to a field in another table. This allows information to be cross-referenced between tables. A field used to look up information from another table is known as a *foreign key*.
 
 
 Import
@@ -245,8 +238,7 @@ The computer is basically doing this:
 
 Order of clauses
 ----------------
-The order of the clauses when we write a query is dictated by SQL: SELECT, FROM, WHERE, ORDER BY
-and we often write each of them on their own line for readability.
+The order of the clauses when we write a query is dictated by SQL: SELECT, FROM, WHERE, ORDER BY and we often write each of them on their own line for readability.
 
 
 ***Exercise: Let's try to combine what we've learned so far in a single query.
@@ -255,8 +247,6 @@ fields, species ID, and weight in kilograms (rounded to two decimal places), for
 rodents captured in 1999, ordered alphabetically by the species ID.***
 
 
-
-**BREAK**
 
 Aggregation
 -----------
@@ -354,8 +344,12 @@ could do something like
 Adding data to existing tables
 ------------------------------
 
-* Browse & Search -> Add
-* Enter data into a csv file and append
+You can add data to a table in a couple of ways:
+
+* Add rows using **Browse & Search -> Add**
+* Enter data into a CSV file and append using **Database -> Import**. This is the same as the process we used to create new tables from CSV files.
+
+***Exercise: Try adding some data using Browse & Search -> Add***
 
 
 Other database management systems
@@ -368,19 +362,6 @@ Other database management systems
 * MySQL/PostgreSQL
     * Multiple simultaneous users
 	* More difficult to setup and maintain
-
-
-Q & A on Database Design (review if time)
------------------------------------------
-
-1. Order doesn't matter
-2. Every row-column combination contains a single *atomic* value, i.e., not
-   containing parts we might want to work with separately.
-3. One field per type of information
-4. No redundant information
-     * Split into separate tables with one table per class of information
-	 * Needs an identifier in common between tables – shared column - to
-       reconnect (foreign key).
 
 
 <a name="datatypes"></a> Data types

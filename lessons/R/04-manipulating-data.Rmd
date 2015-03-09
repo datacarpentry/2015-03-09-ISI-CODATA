@@ -20,7 +20,7 @@ surveys <- read.csv(file="../../data/biology/surveys.csv")
 To refresh our memories from yesterday, let's all begin with an exercise:
 
 1.  Load the "survey" data into R as a `data.frame`
-2.  Show the first rows of the the data frame.
+2.  Show the first 5 rows of the the data frame.
 3.  Print the last 20 values of the column named "sex"
 
 ```{r, echo=FALSE, eval=FALSE}
@@ -47,8 +47,8 @@ sign. In this case, the entire column is a vector. For instance, to extract all
 the weights from our datasets, we can use: `surveys$wgt`. You can use
 `names(surveys)` or `colnames(surveys)` to remind yourself of the column names.
 
-In some cases, you may way to select more than one column. You can do this using
-the square brackets: `surveys[, c("wgt", "sex")]`.
+In some cases, you may want to select more than one column. You can do this using
+square brackets: `surveys[, c("wgt", "sex")]`.
 
 When analyzing data, though, we often want to look at partial statistics, such
 as the maximum value of a variable per species or the average value per plot.
@@ -65,21 +65,22 @@ surveys_DO <- subset(surveys, species == "DO")
 
 1. What does the following do?
 
-  ```{r, echo=TRUE, purl=TRUE}
-  ## What does the following do? (Try to guess without executing it)
-  ## surveys_DO$month[2] <- 8
-  ```
+```{r, eval=FALSE, echo=TRUE, purl=TRUE}
+## What does the following do? (Try to guess without executing it)
+surveys_DO$month[2] <- 8
+```
 
-1. Use the function `subset` twice to create a `data.frame` that contains all
+2. Use the function `subset` twice to create a `data.frame` that contains all
 individuals of the species "DM" that were collected in 2002.
-  * How many individuals of the species "DM" were collected in 2002?
+  
+  *Question: How many individuals of the species "DM" were collected in 2002?*
 
-  ```{r, echo=FALSE, purl=TRUE}
-  ##  Use the function `subset` twice to create a `data.frame` that
-  ##  contains all individuals of the species "DM" that were collected
-  ##  in 2002.
-  ##   * How many individuals of the species "DM" were collected in 2002?
-  ```
+```{r, echo=FALSE, purl=TRUE}
+##  Use the function `subset` twice to create a `data.frame` that
+##  contains all individuals of the species "DM" that were collected
+##  in 2002.
+##   * How many individuals of the species "DM" were collected in 2002?
+```
 
 ## Adding a column to our dataset
 

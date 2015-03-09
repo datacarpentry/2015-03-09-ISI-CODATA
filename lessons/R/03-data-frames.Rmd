@@ -59,43 +59,44 @@ example_data <- data.frame(animal=c("dog", "cat", "sea cucumber", "sea urchin"),
 str(example_data)
 ```
 
-__Point to the differences between character and factor output with str()__
+<!--Point to the differences between character and factor output with str()-->
 
 
 ### Challenge
 
-1. There are a few mistakes in this hand crafted `data.frame`, can you spot and
-fix them? Don't hesitate to experiment!
+1. There are a few mistakes in this hand crafted `data.frame`, can you spot and fix them? Don't hesitate to experiment!
+  
+```{r, eval=FALSE, purl=TRUE}
+##  There are a few mistakes in this hand crafted `data.frame`,
+##  can you spot and fix them? Don't hesitate to experiment!
+author_book <- data.frame(author_first=c("Charles", "Ernst", "Theodosius"),
+                            author_last=c(Darwin, Mayr, Dobzhansky),
+                            year=c(1942, 1970))
+```
 
-   ```{r, eval=FALSE, purl=TRUE}
-   ##  There are a few mistakes in this hand crafted `data.frame`,
-   ##  can you spot and fix them? Don't hesitate to experiment!
-   author_book <- data.frame(author_first=c("Charles", "Ernst", "Theodosius"),
-                                author_last=c(Darwin, Mayr, Dobzhansky),
-                                year=c(1942, 1970))
-   ```
-
-1. Can you predict the class for each of the columns in the following example?
-
-   ```{r, purl=TRUE}
-   ## Can you predict the class for each of the columns in the following example?
-   ## Check your guesses using `str(country_climate)`. Are they what you expected?
-   ##  Why? why not?
-   country_climate <- data.frame(country=c("Canada", "Panama", "South Africa", "Australia"),
-                                  climate=c("cold", "hot", "temperate", "hot/temperate"),
-                                  temperature=c(10, 30, 18, "15"),
-                                  north_hemisphere=c(TRUE, TRUE, FALSE, "FALSE"),
-                                  has_kangaroo=c(FALSE, FALSE, FALSE, 1))
-   ```
+2. Can you predict the class for each of the columns in the following example?
+  
+```{r, purl=TRUE}
+## Can you predict the class for each of the columns in the following example?
+## Check your guesses using `str(country_climate)`. Are they what you expected?
+##  Why? why not?
+country_climate <- data.frame(country=c("Canada", "Panama", "South Africa", "Australia"),
+                              climate=c("cold", "hot", "temperate", "hot/temperate"),
+                              temperature=c(10, 30, 18, "15"),
+                              north_hemisphere=c(TRUE, TRUE, FALSE, "FALSE"),
+                              has_kangaroo=c(FALSE, FALSE, FALSE, 1))
+```
 
    Check your gueses using `str(country_climate)`. Are they what you expected?
    Why? Why not?
 
    R coerces (when possible) to the data type that is the least common
    denominator and the easiest to coerce to.
+   
+   Can you fix the R code above statement so that the fields of `country_climate` have the
+   types you would like?
 
-
-# Inspecting `data.frame` objects
+# Inspecting Data Frame objects
 
 We already saw how the functions `head()` and `str()` can be useful to check the
 content and the structure of a `data.frame`. Here is a non-exhaustive list of
@@ -145,7 +146,7 @@ family (including C++, Java, Perl, and Python) count from 0 because that's
 simpler for computers to do.
 
 `:` is a special function that creates numeric vectors of integer in increasing
-or decreasing order, test `1:10` and `10:1` for instance. The function `seq()`
+or decreasing order. Test `1:10` and `10:1` for instance. The function `seq()`
 (for __seq__uence) can be used to create more complex patterns:
 
 ```{r, results='show', purl=FALSE}
@@ -155,7 +156,7 @@ seq(50, by=5, length.out=10)
 seq(1, 8, by=3) # sequence stops to stay below upper limit
 ```
 
-Our survey data frame has rows and columns (it has 2 dimensions), if we want to
+Our survey data frame has rows and columns (it has 2 dimensions). If we want to
 extract some specific data from it, we need to specify the "coordinates" we want
 from it. Row numbers come first, followed by column numbers.
 
@@ -174,7 +175,7 @@ head_surveys <- surveys[1:6, ] # surveys[1:6, ] is equivalent to head(surveys)
    in conjuction with `seq()` to create a new `data.frame` called
    `surveys_by_10` that includes every 10th row of the survey data frame
    starting at row 10 (10, 20, 30, ...)
-
+   
 ```{r, echo=FALSE, purl=TRUE}
 ### The function `nrow()` on a `data.frame` returns the number of
 ### rows. Use it, in conjuction with `seq()` to create a new

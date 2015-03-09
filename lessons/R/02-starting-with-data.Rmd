@@ -41,7 +41,7 @@ To load our survey data, we need to locate the `surveys.csv` file. We will use
 `read.csv()` to load into memory (as a `data.frame`) the content of the CSV
 file.
 
-* [download the data file](https://github.com/datacarpentry/datacarpentry/raw/master/data/biology/surveys.csv)
+* if you have not already in a previous lesson, [download the data file](../../data/biology/surveys.csv)
 * put it in directory `"data"` within your working directory for these exercises
 
 
@@ -54,7 +54,7 @@ surveys <- read.csv('data/surveys.csv')
 surveys <- read.csv('../../data/biology/surveys.csv')
 ```
 
-__At this point, make sure all participants have the data loaded__
+<!--At this point, make sure all participants have the data loaded-->
 
 This statement doesn't produce any output because assignment doesn't display
 anything. If we want to check that our data has been loaded, we can print the
@@ -68,15 +68,14 @@ function `head()`:
 head(surveys)
 ```
 
-Let's now check the __str__ucture of this `data.frame` in more details with the
+Let's now check the **str**ucture of this `data.frame` in more details with the
 function `str()`:
 
 ```{r, purl=FALSE}
 str(surveys)
 ```
 
-__Also, show how to get this information from the "Environment" tab in RStudio.__
-
+<!--Also, show how to get this information from the "Environment" tab in RStudio.-->
 
 ### Challenge
 
@@ -97,7 +96,8 @@ Based on the output of `str(surveys)`, can you answer the following questions?
 As you can see, the columns `species` and `sex` are of a special class called
 `factor`. Before we learn more about the `data.frame` class, we are going to
 talk about factors. They are very useful but not necessarily intuitive, and
-therefore require some attention.
+therefore require some attention. We will talk about data frames in more detail 
+in the next lesson.
 
 
 ## Factors
@@ -150,7 +150,7 @@ min(food) ## works!
 
 In R's memory, these factors are represented by numbers (1, 2, 3). They are
 better than using simple integer labels because factors are self describing:
-`"low"`, `"medium"`, and `"high"`" is more descriptive than `1`, `2`, `3`. Which
+`"low"`, `"medium"`, and `"high"` is more descriptive than `1`, `2`, `3`. Which
 is low?  You wouldn't be able to tell with just integer data. Factors have this
 information built in. It is particularly helpful when there are many levels
 (like the species in our example data set).
