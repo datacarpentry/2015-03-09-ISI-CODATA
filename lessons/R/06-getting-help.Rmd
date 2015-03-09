@@ -101,3 +101,5 @@ sessionInfo()
   mailing lists.
 * [How to ask for R help](http://blog.revolutionanalytics.com/2014/01/how-to-ask-for-r-help.html)
   useful guidelines
+
+Previous: [Analyzing data](05-analyzing-data.html)
