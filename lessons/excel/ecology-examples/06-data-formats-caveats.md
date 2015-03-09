@@ -8,24 +8,24 @@ Materials by: **Jeffrey Hollister**, **Alexander Duryee**, **Jennifer Bryan**, *
 
 ###Commas as part of data values in `*.csv` files
 
-In the [previous lesson](05-exporting-data.html) we discussed how to export Excel file formats into `*.csv`. Whilst Comma Separated Value files are indeed very useful allowing for easily exchanging and sharing data. 
+In the [previous lesson](05-exporting-data.html) we discussed how to export Excel file formats into `*.csv`. Whilst Comma Separated Value files are indeed very useful allowing for easily exchanging and sharing data.
 
 However, there are some significant problems with this particular format. Quite often the data values themselves may include commas (,). In that case, the software which you use (including Excel) will most likely incorrectly display the data in columns. It is because the commas which are a part of the data values will be interpreted as a delimiter.
 
 For example, our data could look like this:
-	
+
 		species_id,genus,species,taxa
 		AB,Amphispiza,bilineata,Bird
 		AH,Ammospermophilus,harrisi,Rodent-not,censused
 		AS,Ammodramus,savannarum,Bird
 
-In record `AH,Ammospermophilus,harrisi,Rodent-not,censused` the value for *taxa* includes a comma (`Rodent-not,censused`). 
+In record `AH,Ammospermophilus,harrisi,Rodent-not,censused` the value for *taxa* includes a comma (`Rodent-not,censused`).
 If we try to read the above into Excel (or other spreadsheet programme), we will get something like this:
 
 ![Issue with importing csv format](../../../img/csv-mistake.png)
 
-The value for 'taxa' was split into two columns (instead of being put in one column `D`). This can propagate to a number of further errors. For example, the "extra" column will be interpreted as a column with many missing values (and without a proper header!). In addition to that, the value in column `D` for the record in row 3 (so the one where the value for 'taxa' contained the comma) is now incorrect. 
- 
+The value for 'taxa' was split into two columns (instead of being put in one column `D`). This can propagate to a number of further errors. For example, the "extra" column will be interpreted as a column with many missing values (and without a proper header!). In addition to that, the value in column `D` for the record in row 3 (so the one where the value for 'taxa' contained the comma) is now incorrect.
+
 
 ### Dealing with commas as part of data values in `*.csv` files
 
@@ -42,10 +42,10 @@ If you want to store your data in `*.csv` and expect that your data may contain 
 	"CS","Crotalus","scutalatus","Reptile"
 	"CT","Cnemidophorus","tigris","Reptile"
 	"CU","Cnemidophorus","uniparens","Reptile"
-	
-This original file does not contain commas in the values. 
 
-But let's see what would happen if we introduced a comma into  `"Rodent-not censused"` - so that it looks like this: `"Rodent-not, censused"`. 
+This original file does not contain commas in the values.
+
+But let's see what would happen if we introduced a comma into  `"Rodent-not censused"` - so that it looks like this: `"Rodent-not, censused"`.
 
 1. Open the [species.csv](../../../data/biology/species.csv) file in Excel (or Calc in Libre Office).
 2. Add the comma (,) in `"Rodent-not censused"`.
@@ -71,7 +71,7 @@ Comma Separated (.csv)
 	CM,Calamospiza,melanocorys,Bird
 	CQ,Callipepla,squamata,Bird
 	CS,Crotalus,scutalatus,Reptile
-	
+
 Tab separated (.tsv)
 
 	species_id	genus	species	taxa
@@ -82,4 +82,4 @@ Tab separated (.tsv)
 	CS	Crotalus	scutalatus	Reptile
 
 
-Previous: [Exporting data from spreadsheets.](05-exporting-data.html) Next: [Open Refine Deomonstration](../../open_refine/open-refine-demo.html)
+Previous: [Exporting data from spreadsheets.](05-exporting-data.html) Next: [Open Refine Demonstration](../../open_refine/open-refine-demo.html)
