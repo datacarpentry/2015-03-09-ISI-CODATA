@@ -188,3 +188,6 @@ head_surveys <- surveys[1:6, ] # surveys[1:6, ] is equivalent to head(surveys)
 surveys_by_10 <- surveys[seq(10, nrow(surveys), by=10), ]
 ```
 --->
+
+Previous: [Starting with data](02-starting-with-data.html)  Next: [Manipulating data](04-manipulating-data.html)
+

@@ -272,3 +272,6 @@ barplot(surveys_summary$mean_wgt, horiz=TRUE, las=1,
         main="Mean weight per species")
 dev.off()
 ```
+
+Previous: [Manipulating data](04-manipulating-data.html)  Next: [Getting help](06-getting-help.html)
+
