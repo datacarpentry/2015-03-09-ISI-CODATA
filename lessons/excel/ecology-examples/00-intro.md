@@ -12,6 +12,19 @@ Spreadsheet programs are very useful graphical interfaces for designing data tab
 
 ---
 
+### Spreadsheet programs
+
+- LibreOffice - used in these lessons because it's a free, open source
+spreadsheet program
+- Microsoft Excel
+- Gnumeric
+- OpenOffice.org
+
+Commands may differ a bit between programs, but general ideas
+for thinking about spreadsheets is the same.
+
+---
+
 Spreadsheets encompass a lot of the things we need
 to be able to do as researchers. We can use them for:
 
@@ -21,9 +34,9 @@ to be able to do as researchers. We can use them for:
 - Statistics
 - Plotting
 
-How many people have used spreadsheets in their research?
+---
 
-----
+How many people have used spreadsheets in their research?
 
 Spreadsheets can be very useful, but they can also be
 frustrating and even sometimes give us incorrect results.
