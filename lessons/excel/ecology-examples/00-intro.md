@@ -4,11 +4,67 @@ title: Using spreadsheet programs for scientific data
 root: ../../..
 ---
 
-Authors:**Christie Bahlai**, **Aleksandra Pawlik**<br>
+Authors: **Christie Bahlai**, **Aleksandra Pawlik**<br>
 Contributors: **Jennifer Bryan**, **Alexander Duryee**, **Jeffrey Hollister**, **Daisie Huang**, **Owen Jones**, and
 **Ben Marwick**
 
 Spreadsheet programs are very useful graphical interfaces for designing data tables and handling very basic data quality control functions. 
+
+---
+
+Spreadsheets encompass a lot of the things we need
+to be able to do as researchers. We can use them for:
+
+- Data entry
+- Organizing data
+- Subsetting and sorting data
+- Statistics
+- Plotting
+
+How many people have used spreadsheets in their research?
+
+----
+
+Spreadsheets can be very useful, but they can also be
+frustrating and even sometimes give us incorrect results.
+
+What are some things that you've accidentally done in
+a spreadsheet, or have been frustrated that you can't do
+easily?
+
+---
+
+### Spreadsheet outline
+
+In this lesson, we’re going to talk about:
+
+- Good data entry practices - formatting data tables in spreadsheets
+- How to avoid common formatting mistakes
+- Dates as data - beware!
+- Basic quality control and data manipulation in spreadsheets
+- Exporting data from spreadsheets
+
+*Overall good data practices*
+
+---
+
+### What this lesson will not teach you
+
+- How to do statistics in a spreadsheet
+- How to do plotting in a spreadsheet
+- How to write code in spreadsheet programs
+
+If you're looking to do this, a good reference is
+Head First Excel by O'Reilly
+
+---
+
+### Why aren't we teaching this
+
+- It is difficult to track or reproduce statistical
+or plotting analyses done in spreadsheet programs
+
+---
 
 The cardinal rules of using spreadsheet programs for data:
 
