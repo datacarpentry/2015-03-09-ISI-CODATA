@@ -272,8 +272,6 @@ We can also find out how much all of those individuals weigh.
 ***Do you think you could output this value in kilograms, rounded to 3 decimal
    places?***
 
-    SELECT ROUND(SUM(wgt)/1000.0, 3) FROM surveys
-
 There are many other aggregate functions included in SQL including
 MAX, MIN, and AVG.
 
@@ -317,8 +315,8 @@ tables using the word ON.  What we want is to join the data with the same
 species codes.
 
     SELECT *
-    FROM surveys
-    JOIN species ON surveys.species = species.species_id
+    FROM
+      surveys JOIN species ON surveys.species = species.species_id
 
 ON is like WHERE, it filters things out according to a test condition.  We use
 the table.colname format to tell the manager what column in which table we are
@@ -332,8 +330,8 @@ species were captured, but instead of their species ID we wanted their
 actual species names.
 
     SELECT surveys.year, surveys.month, surveys.day, species.genus, species.species
-    FROM surveys
-    JOIN species ON surveys.species = species.species_id
+    FROM
+      surveys JOIN species ON surveys.species = species.species_id
 
 ***Exercise: Write a query that returns the genus, the species, and the weight
    of every individual captured at the site***
@@ -343,9 +341,10 @@ wanted average mass of the individuals on each different type of treatment, we
 could do something like
 
     SELECT plots.plot_type, AVG(surveys.wgt)
-    FROM surveys
-    JOIN plots
-    ON surveys.plot = plots.plot_id
+    FROM
+      surveys
+      JOIN plots
+      ON surveys.plot = plots.plot_id
     GROUP BY plots.plot_type
 
 
