@@ -170,8 +170,11 @@ which have species codes DM, DO, and DS we could combine the tests using OR:
 Saving & Exporting queries
 --------------------------
 
-* Exporting:  **Actions** button and choosing **Save Result to File**.
-* Save: **View** drop down and **Create View**
+A query returns a table of data.
+
+To export the query output as a CSV file, click the **Actions** button and choosing **Save Result to File**.
+
+We can also create a *view*, which acts like a new, virtual table in the database. From the menu select **View -> Create View**, then enter the query you want to run.
 
 
 Building more complex queries
