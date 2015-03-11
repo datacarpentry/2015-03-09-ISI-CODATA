@@ -30,13 +30,13 @@ From White et al, 2013, [Nine simple ways to make it easier to (re)use your data
 [create an example of this in Excel]
 
 ## Using formatting to make the data sheet look pretty ##
-**Example**: merging cells. 
+**Example**: merging cells.
 
 **Solution**: If you’re not careful, formatting a worksheet to be more aesthetically pleasing can compromise your computer’s ability to see associations in the data. Merged cells are an absolute formatting NO-NO if you want to make your data readable by statistics software. Consider restructuring your data in such a way that you will not need to merge cells to organize your data
 
 [create an example of this in Excel]
 
-![by @naupakaz](https://raw.githubusercontent.com/cbahlai/datacarpentry/master/lessons/excel/images/4_merged_cells.jpg)
+![by @naupakaz](../images/4_merged_cells.jpg)
 
 
 ## Placing comments or units in cells ##

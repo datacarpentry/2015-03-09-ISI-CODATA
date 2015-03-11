@@ -10,7 +10,7 @@ Contributors: **Jennifer Bryan**, **Alexander Duryee**, **Jeffrey Hollister**, *
 
 Spreadsheet programs have numerous “useful features” which allow them to “handle” dates in a variety of ways.
 
-![Many formats, many ambiguities](https://raw.githubusercontent.com/cbahlai/datacarpentry/master/lessons/excel/images/5_excel_dates_1.jpg)
+![Many formats, many ambiguities](../images/5_excel_dates_1.jpg)
 
 But these ‘features’ often allow ambiguity to creep into your data. Ideally, data should be as unambiguous as possible. The first thing you need to know is that Excel stores dates as a number- see the last column in the above figure. Essentially, it counts the days from a default of December 31, 1899, and thus stores July 2, 2014 as  the serial number 41822.
 
@@ -30,8 +30,7 @@ Which brings us to the many ‘wonderful’ customizations Excel provides in how
 
 Once, I received a dataset from a colleague representing insect counts that were taken every few days over the summer, and things went something like this:
 
-![So, so ambiguous, it's even confusing Excel](https://raw.githubusercontent.com/cbahlai/datacarpentry/master/lessons/excel/images/6_excel_dates_2.jpg)
-
+![So, so ambiguous, it's even confusing Excel](../images/6_excel_dates_2.jpg)
 
 If Excel was to be believed, my colleague had been collecting bugs IN THE FUTURE. Now, I have no doubt this person is highly capable, but I believe time travel was beyond even his grasp.
 
@@ -43,7 +42,7 @@ The types of statistical models I build usually incorporate year as a factor, to
 
 So, can you convert all your dates into DOY format? Well, in excel, here’s a handy dandy guide:
 
-![Kill that ambiguity before it bites you!](https://raw.githubusercontent.com/cbahlai/datacarpentry/master/lessons/excel/images/7_excel_dates_3.jpg)
+![Kill that ambiguity before it bites you!](../images/7_excel_dates_3.jpg)
 
 
 **Note**: Excel is unable to parse dates from before 1899-12-31, and will thus leave these untouched.  If you’re mixing historic data from before and after this date, Excel will translate only the post-1900 dates into its internal format, thus resulting in mixed data.  If you’re working with historic data, be extremely careful with your dates!
