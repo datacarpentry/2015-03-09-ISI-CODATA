@@ -358,6 +358,25 @@ You can add data to a table in a couple of ways:
 
 ***Exercise: Try adding some data using Browse & Search -> Add***
 
+Final exercise
+--------------
+
+For the final exercise we will think about good database design.
+
+***Exercise: How could we take advantage of relational databases to organise our  [genetic screening data](../excel/ecology-examples/01-format-data.html)?***
+
+Start with one big table of data with these fields:
+
+- Requesting_clinician
+- Pathologist
+- Screening_date
+- Patient_ID
+- Gender
+- Sample_collection_date
+- Gene
+
+This solution works well as a flat table, but requires a lot of redundant data. Think about how you might split this data into multiple tables in a relational database, to make it easier to maintain.
+
 
 Other database management systems
 ---------------------------------
