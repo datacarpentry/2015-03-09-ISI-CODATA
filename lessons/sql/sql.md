@@ -70,7 +70,7 @@ Import
 8. When asked if you want to modify the table, click **OK**
 9. Set the data types for each field
 
-***EXERCISE: Import the plots and species tables***
+***Exercise: Import the plots and species tables***
 
 You can also use this same approach to append new data to an existing table.
 
@@ -127,7 +127,7 @@ example, we could round the values to make them easier to read.
     SELECT plot, species, sex, wgt, ROUND(wgt / 1000.0, 2) FROM surveys;
 
 ***EXERCISE: Write a query that returns
-             The year, month, day, speciesID and weight in mg***
+             the year, month, day, speciesID and weight in mg***
 
 Filtering
 ---------
@@ -160,7 +160,7 @@ which have species codes DM, DO, and DS we could combine the tests using OR:
     SELECT * FROM surveys WHERE (species = "DM") OR (species = "DO") OR (species = "DS");
 
 ***EXERCISE: Write a query that returns
-   The day, month, year, species ID, and weight (in kg) for
+   the day, month, year, species ID, and weight (in kg) for
    individuals caught on Plot 1 that weigh more than 75 g***
 
 
@@ -284,7 +284,7 @@ using a GROUP BY clause
 GROUP BY tells SQL what field or fields we want to use to aggregate the data.
 If we want to group by multiple fields, we give GROUP BY a comma separated list.
 
-***EXERCISE: Write queries that return:***
+***Exercise: Write queries that return:***
 ***1. How many individuals were counted in each year***
 ***2. Average weight of each species in each year**
 
