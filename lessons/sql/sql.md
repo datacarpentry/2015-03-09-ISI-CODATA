@@ -124,7 +124,7 @@ on different dates, but we needed it in kg instead of g we would use
 
 When we run the query, the expression ``wgt / 1000.0`` is evaluated for each row
 and appended to that row, in a new column.  Expressions can use any fields, any
-arithmetic operators (+ - * /) and a variety of built-in functions (). For
+arithmetic operators (+ - * /) and a variety of built-in functions. For
 example, we could round the values to make them easier to read.
 
     SELECT plot, species, sex, wgt, ROUND(wgt / 1000.0, 2) FROM surveys;
@@ -230,7 +230,7 @@ Another note for ordering. We don’t actually have to display a column to sort 
 it.  For example, let’s say we want to order by the species ID, but we only want
 to see genus and species.
 
-    SELECT genus, species FROM species ORDER BY taxon ASC;
+    SELECT genus, species FROM species ORDER BY taxa ASC;
 
 We can do this because sorting occurs earlier in the computational pipeline than
 field selection.
@@ -291,8 +291,10 @@ GROUP BY tells SQL what field or fields we want to use to aggregate the data.
 If we want to group by multiple fields, we give GROUP BY a comma separated list.
 
 ***Exercise: Write queries that return:***
+
 ***1. How many individuals were counted in each year***
-***2. Average weight of each species in each year**
+
+***2. Average weight of each species in each year***
 
 We can order the results of our aggregation by a specific column, including the
 aggregated column.  Let’s count the number of individuals of each species
