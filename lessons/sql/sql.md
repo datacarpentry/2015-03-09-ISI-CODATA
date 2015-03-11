@@ -74,6 +74,7 @@ Import
 
 You can also use this same approach to append new data to an existing table.
 
+Once imported, you can view the contents of your table by clicking the **Browse & Search** button.
 
 Basic queries
 -------------
@@ -81,6 +82,8 @@ Let's start by using the **surveys** table.
 Here we have data on every individual that was captured at the site,
 including when they were captured, what plot they were captured on,
 their species ID, sex and weight in grams.
+
+You can write an SQL query by clicking the **Execute SQL** button.
 
 Let’s write an SQL query that selects only the year column from the surveys
 table.
@@ -117,7 +120,7 @@ We can also do calculations with the values in a query.
 For example, if we wanted to look at the mass of each individual
 on different dates, but we needed it in kg instead of g we would use
 
-    SELECT year, month, day, wgt/1000.0 from surveys
+    SELECT year, month, day, wgt/1000.0 FROM surveys
 
 When we run the query, the expression ``wgt / 1000.0`` is evaluated for each row
 and appended to that row, in a new column.  Expressions can use any fields, any
