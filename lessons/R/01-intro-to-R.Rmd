@@ -17,50 +17,6 @@ knitr::opts_chunk$set(results='hide', fig.path='img/r-lesson-')
 > * Get exposed to a few functions
 
 
-## The R syntax
-
-<!--Start by showing an example of a script.
-Point to the different parts:
-  - a function
-  - the assignment operator `<-`
-  - the `=` for arguments
-  - the comments `#` and how they are used to document function and its content
-  - the `$` operator
-Point to indentation and consistency in spacing to improve clarity -->
-
-Here is an example of a script, which your instructor will discuss.
-
-```{r, eval=FALSE}
-### This function checks that all the plot IDs used in the survey file (`surveys.csv`)
-### are defined in the plots file (`plots.csv`). If all the plot IDs are found, the
-### function shows a message and returns `TRUE`, otherwise the function emits a 
-### warning, and returns `FALSE`
-check_plots <- function(survey_file="data/biology/surveys.csv",
-                        plot_file="data/biology/plots.csv") {
-  ## load files
-  srvy <- read.csv(file=survey_file, stringsAsFactors=FALSE)
-  plts <- read.csv(file=plot_file, stringsAsFactors=FALSE)
-  
-  ## Get unique plot_id
-  unique_srvy_plots <- unique(srvy$plot_id)
-  
-  if (all(unique_srvy_plots %in% plts$plot_id)) {
-    message("Everything looks good.")
-    return(TRUE)
-  } else {
-    warning("Something is wrong: some plot IDs not defined.")
-    return(FALSE)
-  }
-}
-
-# Call the function, using the default value for plot_file
-check_plots(survey_file="latest_surveys.csv")
-
-# Find the number of rows and columns in the survey data
-surveys <- read.csv(file="data/biology/surveys.csv", stringsAsFactors=FALSE)
-nrow(surveys)
-ncol(surveys)
-```
 
 ## Creating variables
 
@@ -160,6 +116,68 @@ age  <- age - 20       # age?
 massIndex <- mass/age  # massIndex?
 ```
 
+## Commenting
+
+Use `#` signs to comment. Comment liberally in your R scripts. Anything to the
+right of a `#` is ignored by R.
+
+## Assignment operator
+
+`<-` is the assignment operator. Assigns values on the right to objects on the
+left, it is like an arrow that points from the value to the object.
+
+Many people use `=`, which works almost the same way. Some programmers have
+strong opinions about which is better.  In most situations it's really a matter of preference.
+
+`=` should is also used to specify the values of arguments in functions, for
+instance `read.csv(file="data/some_data.csv")`.
+
+In RStudio, typing `Alt + -` (push `Alt`, the key next to your space bar at the
+same time as the `-` key) will write ` <- ` in a single keystroke.
+
+## Functions and their arguments
+
+Let's look at a simple function call:
+
+```{r, eval=FALSE}
+surveys <- read.csv(file="data/surveys.csv")
+```
+
+The `file=` part inside the parentheses is called an argument, and most
+functions use arguments. Arguments modify the behavior of the
+function. Typically, they take some input (e.g., some data, an object) and other
+options to change what the function will return, or how to treat the data
+provided.
+
+Most functions can take several arguments, but most are specified by default so
+you don't have to enter them. To see these default values, you can either type
+`args(read.csv)` or look at the help for this function (e.g., `?read.csv`).
+
+```{r, results='show'}
+args(read.csv)
+```
+
+If you provide the arguments in the exact same order as they are defined you
+don't have to name them:
+
+```{r, eval=FALSE}
+read.csv(file="data/surveys.csv", header=TRUE) # is identical to:
+read.csv("data/surveys.csv", TRUE)
+```
+
+However, it's usually not recommended practice because it's a lot of remembering
+to do, and if you share your code with others that includes less known functions
+it makes your code difficult to read. (It's however OK to not include the names
+of the arguments for basic functions like `mean`, `min`, etc...)
+
+Another advantage of naming arguments, is that the order doesn't matter:
+
+```{r, eval=FALSE}
+read.csv(file="data/surveys.csv", header=TRUE) # is identical to:
+read.csv(header=TRUE, file="data/surveys.csv")
+```
+
+
 ## Vectors and data types
 
 ```{r, echo=FALSE, purl=TRUE}
@@ -233,6 +251,53 @@ Vectors are one of the many **data structures** that R uses. Other important
 ones are lists (`list`), matrices (`matrix`), data frames (`data.frame`) and
 factors (`factor`).
 
-We are now going to use our "surveys" dataset to explore the `data.frame` data structure.
+We will use our "surveys" dataset to explore the `data.frame` data structure.
+
+## R syntax example
+
+<!--Start by showing an example of a script.
+Point to the different parts:
+  - a function
+  - the assignment operator `<-`
+  - the `=` for arguments
+  - the comments `#` and how they are used to document function and its content
+  - the `$` operator
+Point to indentation and consistency in spacing to improve clarity -->
+
+Here is an example of a script, which your instructor will discuss.
+
+```{r, eval=FALSE}
+### This function checks that all the plot IDs used in the survey file (`surveys.csv`)
+### are defined in the plots file (`plots.csv`). If all the plot IDs are found, the
+### function shows a message and returns `TRUE`, otherwise the function emits a 
+### warning, and returns `FALSE`
+check_plots <- function(survey_file="data/biology/surveys.csv",
+                        plot_file="data/biology/plots.csv") {
+  ## load files
+  srvy <- read.csv(file=survey_file, stringsAsFactors=FALSE)
+  plts <- read.csv(file=plot_file, stringsAsFactors=FALSE)
+  
+  ## Get unique plot_id
+  unique_srvy_plots <- unique(srvy$plot_id)
+  
+  if (all(unique_srvy_plots %in% plts$plot_id)) {
+    message("Everything looks good.")
+    return(TRUE)
+  } else {
+    warning("Something is wrong: some plot IDs not defined.")
+    return(FALSE)
+  }
+}
+
+# Call the function, using the default value for plot_file
+check_plots(survey_file="latest_surveys.csv")
+
+# Find the number of rows and columns in the survey data
+surveys <- read.csv(file="data/biology/surveys.csv", stringsAsFactors=FALSE)
+nrow(surveys)
+ncol(surveys)
+```
+
+
 
 Previous: [Before we start](00-before-we-start.html)  Next: [Starting with data](02-starting-with-data.html)

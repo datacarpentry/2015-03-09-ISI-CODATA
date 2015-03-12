@@ -64,8 +64,99 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <li>Get exposed to a few functions</li>
 </ul>
 </blockquote>
-<div id="the-r-syntax" class="section level2">
-<h2>The R syntax</h2>
+<div id="creating-variables" class="section level2">
+<h2>Creating variables</h2>
+<p>You can get output from R simply by typing in math in the console</p>
+<pre class="r"><code>3 + 5
+12/7</code></pre>
+<p>However, to do useful and interesting things, we need to assign <em>values</em> to <em>variables</em>. To create a variable, we need to give it a name followed by the assignment operator <code>&lt;-</code> and the value we want to give it:</p>
+<pre class="r"><code>weight_kg &lt;- 55</code></pre>
+<p>Variables can be given any name such as <code>x</code>, <code>current_temperature</code>, or <code>subject_id</code>. You want your object names to be <em>explicit</em> so they help you remember what they represent.</p>
+<p>You don’t want variable names to be too long, but they can be somewhat long. RStudio, and many other programs have a feature called <strong>tab completion</strong>. Start typing the name of a function or variable and hit TAB, and RStudio will complete the name if the object is stored in memory. If it’s ambiguous, it will give you options</p>
+<!-- Demonstrate this with `weight_kg`, `help()`, etc. -->
+
+<p>Tab completion lets you err on the size of more transparent names.</p>
+<p>Variable names cannot start with a number (<code>2x</code> is not valid but <code>x2</code> is). R is case-sensitive (e.g., <code>weight_kg</code> is different from <code>Weight_kg</code>). There are some names that cannot be used because they represent the names of fundamental functions in R (e.g., <code>if</code>, <code>else</code>, <code>for</code>, see <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html">here</a> for a complete list). In general, even if it’s allowed, it’s best to not use other function names (e.g., <code>c</code>, <code>T</code>, <code>mean</code>, <code>data</code>, <code>df</code>, <code>weights</code>). In doubt check the help to see if the name is already in use. It’s also best to avoid dots (<code>.</code>) within a variable name as in <code>my.dataset</code>. It is also recommended to use nouns for variable names, and verbs for function names.</p>
+<p>When assigning a value to an object, R does not print anything. You can force to print the value by using parentheses or by typing the name:</p>
+<pre class="r"><code>(weight_kg &lt;- 55)
+weight_kg</code></pre>
+<p>Now that R has <code>weight_kg</code> in memory, we can do arithmetic with it. For instance, we may want to convert this weight in pounds (weight in pounds is 2.2 times the weight in kg):</p>
+<pre class="r"><code>2.2 * weight_kg</code></pre>
+<p>We can also change a variable’s value by assigning it a new one:</p>
+<pre class="r"><code>weight_kg &lt;- 57.5
+2.2 * weight_kg</code></pre>
+<p>This means that assigning a value to one variable does not change the values of other variables. For example, let’s store the animal’s weight in pounds in a variable.</p>
+<pre class="r"><code>weight_lb &lt;- 2.2 * weight_kg</code></pre>
+<p>and then change <code>weight_kg</code> to 100.</p>
+<pre class="r"><code>weight_kg &lt;- 100</code></pre>
+<p>What do you think is the current content of the object <code>weight_lb</code>? 126.5 or 200?</p>
+<div id="exercise" class="section level3">
+<h3>Exercise</h3>
+<p>What are the values after each statement in the following?</p>
+<pre class="r"><code>mass &lt;- 47.5           # mass?
+age  &lt;- 122            # age?
+mass &lt;- mass * 2.0     # mass?
+age  &lt;- age - 20       # age?
+massIndex &lt;- mass/age  # massIndex?</code></pre>
+</div>
+</div>
+<div id="commenting" class="section level2">
+<h2>Commenting</h2>
+<p>Use <code>#</code> signs to comment. Comment liberally in your R scripts. Anything to the right of a <code>#</code> is ignored by R.</p>
+</div>
+<div id="assignment-operator" class="section level2">
+<h2>Assignment operator</h2>
+<p><code>&lt;-</code> is the assignment operator. Assigns values on the right to objects on the left, it is like an arrow that points from the value to the object.</p>
+<p>Many people use <code>=</code>, which works almost the same way. Some programmers have strong opinions about which is better. In most situations it’s really a matter of preference.</p>
+<p><code>=</code> should is also used to specify the values of arguments in functions, for instance <code>read.csv(file=&quot;data/some_data.csv&quot;)</code>.</p>
+<p>In RStudio, typing <code>Alt + -</code> (push <code>Alt</code>, the key next to your space bar at the same time as the <code>-</code> key) will write <code>&lt;-</code> in a single keystroke.</p>
+</div>
+<div id="functions-and-their-arguments" class="section level2">
+<h2>Functions and their arguments</h2>
+<p>Let’s look at a simple function call:</p>
+<pre class="r"><code>surveys &lt;- read.csv(file=&quot;data/surveys.csv&quot;)</code></pre>
+<p>The <code>file=</code> part inside the parentheses is called an argument, and most functions use arguments. Arguments modify the behavior of the function. Typically, they take some input (e.g., some data, an object) and other options to change what the function will return, or how to treat the data provided.</p>
+<p>Most functions can take several arguments, but most are specified by default so you don’t have to enter them. To see these default values, you can either type <code>args(read.csv)</code> or look at the help for this function (e.g., <code>?read.csv</code>).</p>
+<pre class="r"><code>args(read.csv)</code></pre>
+<pre><code>## function (file, header = TRUE, sep = &quot;,&quot;, quote = &quot;\&quot;&quot;, dec = &quot;.&quot;, 
+##     fill = TRUE, comment.char = &quot;&quot;, ...) 
+## NULL</code></pre>
+<p>If you provide the arguments in the exact same order as they are defined you don’t have to name them:</p>
+<pre class="r"><code>read.csv(file=&quot;data/surveys.csv&quot;, header=TRUE) # is identical to:
+read.csv(&quot;data/surveys.csv&quot;, TRUE)</code></pre>
+<p>However, it’s usually not recommended practice because it’s a lot of remembering to do, and if you share your code with others that includes less known functions it makes your code difficult to read. (It’s however OK to not include the names of the arguments for basic functions like <code>mean</code>, <code>min</code>, etc…)</p>
+<p>Another advantage of naming arguments, is that the order doesn’t matter:</p>
+<pre class="r"><code>read.csv(file=&quot;data/surveys.csv&quot;, header=TRUE) # is identical to:
+read.csv(header=TRUE, file=&quot;data/surveys.csv&quot;)</code></pre>
+</div>
+<div id="vectors-and-data-types" class="section level2">
+<h2>Vectors and data types</h2>
+<p>A vector is the most common and basic data structure in R, and is pretty much the workhorse of R. It’s a group of values, mainly either numbers or characters. You can assign this list of values to a variable, just like you would for one item. For example we can create a vector of animal weights:</p>
+<pre class="r"><code>weights &lt;- c(50, 60, 65, 82)
+weights</code></pre>
+<p>A vector can also contain characters:</p>
+<pre class="r"><code>animals &lt;- c(&quot;mouse&quot;, &quot;rat&quot;, &quot;dog&quot;)
+animals</code></pre>
+<p>There are many functions that allow you to inspect the content of a vector. <code>length()</code> tells you how many elements are in a particular vector:</p>
+<pre class="r"><code>length(weights)
+length(animals)</code></pre>
+<p><code>class()</code> indicates the class (the type of element) of an object:</p>
+<pre class="r"><code>class(weights)
+class(animals)</code></pre>
+<p>The function <code>str()</code> provides an overview of the object and the elements it contains. It is a really useful function when working with large and complex objects:</p>
+<pre class="r"><code>str(weights)
+str(animals)</code></pre>
+<p>You can add elements to your vector simply by using the <code>c()</code> function:</p>
+<pre class="r"><code>weights &lt;- c(weights, 90) # adding at the end
+weights &lt;- c(30, weights) # adding at the beginning
+weights</code></pre>
+<p>What happens here is that we take the original vector <code>weights</code>, and we are adding another item first to the end of the other ones, and then another item at the beginning. We can do this over and over again to build a vector or a dataset. As we program, this may be useful to autoupdate results that we are collecting or calculating.</p>
+<p>We just saw 2 of the 6 <strong>data types</strong> that R uses: <code>&quot;character&quot;</code> and <code>&quot;numeric&quot;</code>. The other 4 are: * <code>&quot;logical&quot;</code> for <code>TRUE</code> and <code>FALSE</code> (the boolean data type) * <code>&quot;integer&quot;</code> for integer numbers (e.g., <code>2L</code>, the <code>L</code> indicates to R that it’s an integer) * <code>&quot;complex&quot;</code> to represent complex numbers with real and imaginary parts (e.g., <code>1+4i</code>) and that’s all we’re going to say about them * <code>&quot;raw&quot;</code> that we won’t discuss further</p>
+<p>Vectors are one of the many <strong>data structures</strong> that R uses. Other important ones are lists (<code>list</code>), matrices (<code>matrix</code>), data frames (<code>data.frame</code>) and factors (<code>factor</code>).</p>
+<p>We will use our “surveys” dataset to explore the <code>data.frame</code> data structure.</p>
+</div>
+<div id="r-syntax-example" class="section level2">
+<h2>R syntax example</h2>
 <!--Start by showing an example of a script.
 Point to the different parts:
   - a function
@@ -105,68 +196,6 @@ check_plots(survey_file=&quot;latest_surveys.csv&quot;)
 surveys &lt;- read.csv(file=&quot;data/biology/surveys.csv&quot;, stringsAsFactors=FALSE)
 nrow(surveys)
 ncol(surveys)</code></pre>
-</div>
-<div id="creating-variables" class="section level2">
-<h2>Creating variables</h2>
-<p>You can get output from R simply by typing in math in the console</p>
-<pre class="r"><code>3 + 5
-12/7</code></pre>
-<p>However, to do useful and interesting things, we need to assign <em>values</em> to <em>variables</em>. To create a variable, we need to give it a name followed by the assignment operator <code>&lt;-</code> and the value we want to give it:</p>
-<pre class="r"><code>weight_kg &lt;- 55</code></pre>
-<p>Variables can be given any name such as <code>x</code>, <code>current_temperature</code>, or <code>subject_id</code>. You want your object names to be <em>explicit</em> so they help you remember what they represent.</p>
-<p>You don’t want variable names to be too long, but they can be somewhat long. RStudio, and many other programs have a feature called <strong>tab completion</strong>. Start typing the name of a function or variable and hit TAB, and RStudio will complete the name if the object is stored in memory. If it’s ambiguous, it will give you options</p>
-<!-- Demonstrate this with `weight_kg`, `help()`, etc. -->
-
-<p>Tab completion lets you err on the size of more transparent names.</p>
-<p>Variable names cannot start with a number (<code>2x</code> is not valid but <code>x2</code> is). R is case-sensitive (e.g., <code>weight_kg</code> is different from <code>Weight_kg</code>). There are some names that cannot be used because they represent the names of fundamental functions in R (e.g., <code>if</code>, <code>else</code>, <code>for</code>, see <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html">here</a> for a complete list). In general, even if it’s allowed, it’s best to not use other function names (e.g., <code>c</code>, <code>T</code>, <code>mean</code>, <code>data</code>, <code>df</code>, <code>weights</code>). In doubt check the help to see if the name is already in use. It’s also best to avoid dots (<code>.</code>) within a variable name as in <code>my.dataset</code>. It is also recommended to use nouns for variable names, and verbs for function names.</p>
-<p>When assigning a value to an object, R does not print anything. You can force to print the value by using parentheses or by typing the name:</p>
-<pre class="r"><code>(weight_kg &lt;- 55)
-weight_kg</code></pre>
-<p>Now that R has <code>weight_kg</code> in memory, we can do arithmetic with it. For instance, we may want to convert this weight in pounds (weight in pounds is 2.2 times the weight in kg):</p>
-<pre class="r"><code>2.2 * weight_kg</code></pre>
-<p>We can also change a variable’s value by assigning it a new one:</p>
-<pre class="r"><code>weight_kg &lt;- 57.5
-2.2 * weight_kg</code></pre>
-<p>This means that assigning a value to one variable does not change the values of other variables. For example, let’s store the animal’s weight in pounds in a variable.</p>
-<pre class="r"><code>weight_lb &lt;- 2.2 * weight_kg</code></pre>
-<p>and then change <code>weight_kg</code> to 100.</p>
-<pre class="r"><code>weight_kg &lt;- 100</code></pre>
-<p>What do you think is the current content of the object <code>weight_lb</code>? 126.5 or 200?</p>
-<div id="exercise" class="section level3">
-<h3>Exercise</h3>
-<p>What are the values after each statement in the following?</p>
-<pre class="r"><code>mass &lt;- 47.5           # mass?
-age  &lt;- 122            # age?
-mass &lt;- mass * 2.0     # mass?
-age  &lt;- age - 20       # age?
-massIndex &lt;- mass/age  # massIndex?</code></pre>
-</div>
-</div>
-<div id="vectors-and-data-types" class="section level2">
-<h2>Vectors and data types</h2>
-<p>A vector is the most common and basic data structure in R, and is pretty much the workhorse of R. It’s a group of values, mainly either numbers or characters. You can assign this list of values to a variable, just like you would for one item. For example we can create a vector of animal weights:</p>
-<pre class="r"><code>weights &lt;- c(50, 60, 65, 82)
-weights</code></pre>
-<p>A vector can also contain characters:</p>
-<pre class="r"><code>animals &lt;- c(&quot;mouse&quot;, &quot;rat&quot;, &quot;dog&quot;)
-animals</code></pre>
-<p>There are many functions that allow you to inspect the content of a vector. <code>length()</code> tells you how many elements are in a particular vector:</p>
-<pre class="r"><code>length(weights)
-length(animals)</code></pre>
-<p><code>class()</code> indicates the class (the type of element) of an object:</p>
-<pre class="r"><code>class(weights)
-class(animals)</code></pre>
-<p>The function <code>str()</code> provides an overview of the object and the elements it contains. It is a really useful function when working with large and complex objects:</p>
-<pre class="r"><code>str(weights)
-str(animals)</code></pre>
-<p>You can add elements to your vector simply by using the <code>c()</code> function:</p>
-<pre class="r"><code>weights &lt;- c(weights, 90) # adding at the end
-weights &lt;- c(30, weights) # adding at the beginning
-weights</code></pre>
-<p>What happens here is that we take the original vector <code>weights</code>, and we are adding another item first to the end of the other ones, and then another item at the beginning. We can do this over and over again to build a vector or a dataset. As we program, this may be useful to autoupdate results that we are collecting or calculating.</p>
-<p>We just saw 2 of the 6 <strong>data types</strong> that R uses: <code>&quot;character&quot;</code> and <code>&quot;numeric&quot;</code>. The other 4 are: * <code>&quot;logical&quot;</code> for <code>TRUE</code> and <code>FALSE</code> (the boolean data type) * <code>&quot;integer&quot;</code> for integer numbers (e.g., <code>2L</code>, the <code>L</code> indicates to R that it’s an integer) * <code>&quot;complex&quot;</code> to represent complex numbers with real and imaginary parts (e.g., <code>1+4i</code>) and that’s all we’re going to say about them * <code>&quot;raw&quot;</code> that we won’t discuss further</p>
-<p>Vectors are one of the many <strong>data structures</strong> that R uses. Other important ones are lists (<code>list</code>), matrices (<code>matrix</code>), data frames (<code>data.frame</code>) and factors (<code>factor</code>).</p>
-<p>We are now going to use our “surveys” dataset to explore the <code>data.frame</code> data structure.</p>
 <p>Previous: <a href="00-before-we-start.html">Before we start</a> Next: <a href="02-starting-with-data.html">Starting with data</a></p>
 </div>
 

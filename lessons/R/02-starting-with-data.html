@@ -63,8 +63,8 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <li>understand what are factors and how to manipulate them</li>
 </ul>
 </blockquote>
-<div id="presentation-of-the-survey-data" class="section level1">
-<h1>Presentation of the Survey Data</h1>
+<div id="importing-the-survey-data" class="section level1">
+<h1>Importing the Survey Data</h1>
 <p>We are studying the species and weight of animals caught in plots in our study area. The dataset is stored as a <code>.csv</code> file: each row holds information for a single animal, and the columns represent <code>survey_id</code> , <code>month</code>, <code>day</code>, <code>year</code>, <code>plot</code>, <code>species</code> (a 2 letter code, see the <code>species.csv</code> file for correspondance), <code>sex</code> (“M” for males and “F” for females), <code>wgt</code> (the weight in grams).</p>
 <p>The first few rows of the survey dataset look like this:</p>
 <pre><code>&quot;63&quot;,&quot;8&quot;,&quot;19&quot;,&quot;1977&quot;,&quot;3&quot;,&quot;DM&quot;,&quot;M&quot;,&quot;40&quot;
@@ -97,13 +97,16 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <pre class="r"><code>str(surveys)</code></pre>
 <!--Also, show how to get this information from the "Environment" tab in RStudio.-->
 
+<div id="exercise" class="section level4">
+<h4>Exercise</h4>
+<p>Read in another CSV file, <code>species.csv</code>, and store it in a variable.</p>
+</div>
 <div id="challenge" class="section level3">
 <h3>Challenge</h3>
 <p>Based on the output of <code>str(surveys)</code>, can you answer the following questions?</p>
 <ul>
 <li>What is the class of the object <code>surveys</code>?</li>
-<li>How many rows and how many columns are in this object?</li>
-<li>How many species have been recorded during these surveys?</li>
+<li>What is the class of the column <code>species</code>?</li>
 </ul>
 <p>As you can see, the columns <code>species</code> and <code>sex</code> are of a special class called <code>factor</code>. Before we learn more about the <code>data.frame</code> class, we are going to talk about factors. They are very useful but not necessarily intuitive, and therefore require some attention. We will talk about data frames in more detail in the next lesson.</p>
 </div>

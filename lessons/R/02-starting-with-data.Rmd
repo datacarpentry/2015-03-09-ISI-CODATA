@@ -16,7 +16,7 @@ knitr::opts_chunk$set(results='hide', fig.path='img/r-lesson-')
 > * understand what are factors and how to manipulate them
 
 
-# Presentation of the Survey Data
+# Importing the Survey Data
 
 ```{r, echo=FALSE, purl=TRUE}
 # Presentation of the survey data
@@ -77,13 +77,16 @@ str(surveys)
 
 <!--Also, show how to get this information from the "Environment" tab in RStudio.-->
 
+#### Exercise
+
+Read in another CSV file, `species.csv`, and store it in a variable.
+
 ### Challenge
 
 Based on the output of `str(surveys)`, can you answer the following questions?
 
 * What is the class of the object `surveys`?
-* How many rows and how many columns are in this object?
-* How many species have been recorded during these surveys?
+* What is the class of the column `species`?
 
 ```{r, echo=FALSE, purl=TRUE}
 ## Exercise

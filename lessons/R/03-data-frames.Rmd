@@ -171,7 +171,12 @@ head_surveys <- surveys[1:6, ] # surveys[1:6, ] is equivalent to head(surveys)
 
 ### Challenge
 
-1. The function `nrow()` on a `data.frame` returns the number of rows. Use it,
+1. Using the functions above:
+
+* How many rows and how many columns are in the surveys object?
+* How many species have been recorded during these surveys? You may want to think about factors.
+
+2. The function `nrow()` on a `data.frame` returns the number of rows. Use it,
    in conjuction with `seq()` to create a new `data.frame` called
    `surveys_by_10` that includes every 10th row of the survey data frame
    starting at row 10 (10, 20, 30, ...)

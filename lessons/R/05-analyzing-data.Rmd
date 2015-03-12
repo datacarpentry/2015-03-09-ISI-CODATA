@@ -252,8 +252,7 @@ example(barplot)
 ```
 
 There's also a plotting package called [`ggplot2`](http://docs.ggplot2.org/)
-that adds a lot of functionality. The syntax takes some getting used to but it's
-extremely powerful and flexible.
+that adds a lot of functionality. The syntax takes some getting used to but it's extremely powerful and flexible.
 
 If you wanted to output this plot to a pdf file rather than to the screen, you
 can specify where you want the plot to go with the `pdf()` function. If you
