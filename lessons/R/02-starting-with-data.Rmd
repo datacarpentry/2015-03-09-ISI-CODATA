@@ -173,20 +173,6 @@ as.numeric(as.character(f)) ## works...
 as.numeric(levels(f))[f]    ## The recommended way.
 ```
 
-### Challenge
-
-The function `table()` tabulates observations and can be used to create
-bar plots quickly.
-
-***Question: How can you recreate this plot but having "control" being listed last instead of first?***
-
-```{r, results='show', purl=TRUE}
-## Create a barplot, but without controling the order of the factors
-exprmt <- factor(c("treat1", "treat2", "treat1", "treat3", "treat1", "control",
-                   "treat1", "treat2", "treat3"))
-table(exprmt)
-barplot(table(exprmt))
-```
 
 <!---
 ```{r, purl=FALSE}
