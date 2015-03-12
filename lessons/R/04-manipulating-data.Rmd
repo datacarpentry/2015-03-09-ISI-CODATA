@@ -14,6 +14,7 @@ surveys <- read.csv(file="../../data/biology/surveys.csv")
 > * being able to subset for a level
 > * being able to extract particular values from a `data.frame`
 > * being able to add/remove columns and rows
+> * being able to export our data back to CSV
 
 # Start-up challenge
 
@@ -28,7 +29,9 @@ surveys = read.csv('data/biology/surveys.csv')
 head(surveys)
 ```
 
-# Subsetting data
+# Getting a modified version of a data frame
+
+## Subsetting data
 
 ```{r, echo=FALSE, purl=TRUE}
 ## subsetting data
@@ -150,7 +153,7 @@ head(surveys)
 
 <!--- should we cover merge()? --->
 
-# Adding rows
+## Adding rows
 
 <!--- Even if this is not optimal, using this approach requires to cover less   -->
 <!--- material such as logical operations on vectors. Depending on how fast the -->
@@ -187,7 +190,7 @@ for the years 2000 and 2001.
 ## `surveys_index`?
 ```
 
-# Removing columns
+## Removing columns
 
 ```{r, echo=FALSE, purl=FALSE}
 ## Removing columns
@@ -214,7 +217,7 @@ surveys_noDate2 <- subset(surveys, select=-c(month, day, year))
 colnames(surveys_noDate2)
 ```
 
-# Removing rows
+## Removing rows
 
 ```{r, echo=FALSE, purl=FALSE}
 ## Removing rows
@@ -226,6 +229,34 @@ Typically rows are not associated with names, so to remove them from the
 ```{r, results='show', purl=FALSE}
 surveys_missingRows <- surveys[-c(10, 50:70), ] # removing rows 10, and 50 to 70
 ```
+
+
+# Writing to CSV
+
+Now that we've made changes to our data frame, let's see how to write it back out
+to a CSV file. We read the file in with `read.csv()`, and we can write the data out
+with `write.csv()` (or more generally, `write.table()`). 
+
+Let's try to write out our data frame with some rows removed:
+```{r, eval=FALSE}
+write.csv(surveys_missingRows, 'data/surveys_missingrows.csv')
+```
+
+This will create the file `data/surveys_missingrows.csv` and write the data frame to it.
+
+Note that, unlike `read.csv()`, `write.csv()` needs to take both the data frame and the filename as arguments.
+
+Open your new file `data/surveys_missingrows.csv` in a text editor.
+Does it look as you expected? Compare it to `surveys.csv`.
+
+You may notice that there is an extra column. 
+This is because data frames in R have not only column names, but also row names. 
+By default, these row names will be written out to the CSV file. 
+You can change this option with the `row.names` argument to `write.csv()`
+
+There are several different options when writing a CSV file. You can.use the help functions to see the details of other arguments.
+
+***Exercise: Try to write out your data frame without row names, so that you get a CSV file of the same style as the original.***
 
 Previous: [Data Frames](03-data-frames.html)  Next: [Analyzing data](05-analyzing-data.html)
 

@@ -61,6 +61,7 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <li>being able to subset for a level</li>
 <li>being able to extract particular values from a <code>data.frame</code></li>
 <li>being able to add/remove columns and rows</li>
+<li>being able to export our data back to CSV</li>
 </ul>
 </blockquote>
 <div id="start-up-challenge" class="section level1">
@@ -72,8 +73,10 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <li>Print the last 20 values of the column named “sex”</li>
 </ol>
 </div>
-<div id="subsetting-data" class="section level1">
-<h1>Subsetting data</h1>
+<div id="getting-a-modified-version-of-a-data-frame" class="section level1">
+<h1>Getting a modified version of a data frame</h1>
+<div id="subsetting-data" class="section level2">
+<h2>Subsetting data</h2>
 <p>In particular for larger datasets, it can be tricky to remember the column number that corresponds to a particular variable. (Are species names in column 5 or 7? oh, right… they are in column 6). In some cases, in which column the variable will be can change if the script you are using adds or removes columns. It’s therefore often better to use column names to refer to a particular variable, and it makes your code easier to read and your intentions clearer.</p>
 <p>You can do operations on a particular column, by selecting it using the <code>$</code> sign. In this case, the entire column is a vector. For instance, to extract all the weights from our datasets, we can use: <code>surveys$wgt</code>. You can use <code>names(surveys)</code> or <code>colnames(surveys)</code> to remind yourself of the column names.</p>
 <p>In some cases, you may want to select more than one column. You can do this using square brackets: <code>surveys[, c(&quot;wgt&quot;, &quot;sex&quot;)]</code>.</p>
@@ -91,6 +94,7 @@ surveys_DO$month[2] &lt;- 8</code></pre>
 <li>Use the function <code>subset</code> twice to create a <code>data.frame</code> that contains all individuals of the species “DM” that were collected in 2002.</li>
 </ol>
 <p><em>Question: How many individuals of the species “DM” were collected in 2002?</em></p>
+</div>
 </div>
 <div id="adding-a-column-to-our-dataset" class="section level2">
 <h2>Adding a column to our dataset</h2>
@@ -118,9 +122,8 @@ head(surveys)</code></pre>
 
 </div>
 </div>
-</div>
-<div id="adding-rows" class="section level1">
-<h1>Adding rows</h1>
+<div id="adding-rows" class="section level2">
+<h2>Adding rows</h2>
 <!--- Even if this is not optimal, using this approach requires to cover less   -->
 <!--- material such as logical operations on vectors. Depending on how fast the -->
 <!--- group moves, it might be better to show the correct way.                  -->
@@ -137,8 +140,8 @@ surveys_DM &lt;- subset(surveys, species == &quot;DM&quot;)</code></pre>
 <p>Using a similar approach, construct a new <code>data.frame</code> that only includes data for the years 2000 and 2001.</p>
 </div>
 </div>
-<div id="removing-columns" class="section level1">
-<h1>Removing columns</h1>
+<div id="removing-columns" class="section level2">
+<h2>Removing columns</h2>
 <p>Just like you can select columns by their positions in the <code>data.frame</code> or by their names, you can remove them similarly.</p>
 <p>To remove it by column number:</p>
 <pre class="r"><code>surveys_noDate &lt;- surveys[, -c(2:4)]
@@ -155,10 +158,23 @@ colnames(surveys_noDate2)</code></pre>
 <pre><code>## [1] &quot;record_id&quot;    &quot;plot&quot;         &quot;species&quot;      &quot;sex&quot;         
 ## [5] &quot;wgt&quot;          &quot;genus&quot;        &quot;species_name&quot;</code></pre>
 </div>
-<div id="removing-rows" class="section level1">
-<h1>Removing rows</h1>
+<div id="removing-rows" class="section level2">
+<h2>Removing rows</h2>
 <p>Typically rows are not associated with names, so to remove them from the <code>data.frame</code>, you can do:</p>
 <pre class="r"><code>surveys_missingRows &lt;- surveys[-c(10, 50:70), ] # removing rows 10, and 50 to 70</code></pre>
+</div>
+</div>
+<div id="writing-to-csv" class="section level1">
+<h1>Writing to CSV</h1>
+<p>Now that we’ve made changes to our data frame, let’s see how to write it back out to a CSV file. We read the file in with <code>read.csv()</code>, and we can write the data out with <code>write.csv()</code> (or more generally, <code>write.table()</code>).</p>
+<p>Let’s try to write out our data frame with some rows removed:</p>
+<pre class="r"><code>write.csv(surveys_missingRows, 'data/surveys_missingrows.csv')</code></pre>
+<p>This will create the file <code>data/surveys_missingrows.csv</code> and write the data frame to it.</p>
+<p>Note that, unlike <code>read.csv()</code>, <code>write.csv()</code> needs to take both the data frame and the filename as arguments.</p>
+<p>Open your new file <code>data/surveys_missingrows.csv</code> in a text editor. Does it look as you expected? Compare it to <code>surveys.csv</code>.</p>
+<p>You may notice that there is an extra column. This is because data frames in R have not only column names, but also row names. By default, these row names will be written out to the CSV file. You can change this option with the <code>row.names</code> argument to <code>write.csv()</code></p>
+<p>There are several different options when writing a CSV file. You can.use the help functions to see the details of other arguments.</p>
+<p><strong><em>Exercise: Try to write out your data frame without row names, so that you get a CSV file of the same style as the original.</em></strong></p>
 <p>Previous: <a href="03-data-frames.html">Data Frames</a> Next: <a href="05-analyzing-data.html">Analyzing data</a></p>
 </div>
 
