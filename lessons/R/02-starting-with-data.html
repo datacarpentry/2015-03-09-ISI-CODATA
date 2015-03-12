@@ -138,6 +138,16 @@ min(food) ## works!</code></pre>
 as.numeric(f)               ## wrong! and there is no warning...
 as.numeric(as.character(f)) ## works...
 as.numeric(levels(f))[f]    ## The recommended way.</code></pre>
+</div>
+<div id="challenge-1" class="section level3">
+<h3>Challenge</h3>
+<p>R has a built-in function called <code>sort()</code>, for sorting data.</p>
+<p>We can make a vector of factors and then sort it like this:</p>
+<pre class="r"><code>sizes = factor(c(&quot;large&quot;,&quot;small&quot;,&quot;small&quot;,&quot;medium&quot;,&quot;large&quot;,&quot;large&quot;));
+sort(sizes);</code></pre>
+<pre><code>## [1] large  large  large  medium small  small 
+## Levels: large medium small</code></pre>
+<p>Unfortunately it looks like our vector has been sorted in the order large, medium, small. How could we use an ordered factor make sure it sorts in the order small, medium, large?</p>
 <p>Previous: <a href="01-intro-to-R.html">Introduction to R</a> Next: <a href="03-data-frames.html">Data Frames</a></p>
 </div>
 </div>

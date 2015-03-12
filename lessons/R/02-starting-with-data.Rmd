@@ -173,6 +173,18 @@ as.numeric(as.character(f)) ## works...
 as.numeric(levels(f))[f]    ## The recommended way.
 ```
 
+### Challenge
+
+R has a built-in function called `sort()`, for sorting data. 
+
+We can make a vector of factors and then sort it like this:
+
+```{r, results='show'}
+sizes = factor(c("large","small","small","medium","large","large"));
+sort(sizes);
+```
+
+Unfortunately it looks like our vector has been sorted in the order large, medium, small. How could we use an ordered factor make sure it sorts in the order small, medium, large?
 
 Previous: [Introduction to R](01-intro-to-R.html)  Next: [Data Frames](03-data-frames.html)
 
