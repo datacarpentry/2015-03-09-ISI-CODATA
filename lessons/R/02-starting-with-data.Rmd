@@ -174,12 +174,5 @@ as.numeric(levels(f))[f]    ## The recommended way.
 ```
 
 
-<!---
-```{r, purl=FALSE}
-exprmt <- factor(exprmt, levels=c("treat1", "treat2", "treat3", "control"))
-barplot(table(exprmt))
-```
---->
-
 Previous: [Introduction to R](01-intro-to-R.html)  Next: [Data Frames](03-data-frames.html)
 
