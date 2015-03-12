@@ -167,6 +167,7 @@ surveys[1:3, 7] # first three elements in the 7th column
 surveys[3, ]    # the 3rd element for all columns
 surveys[, 8]    # the entire 8th column
 head_surveys <- surveys[1:6, ] # surveys[1:6, ] is equivalent to head(surveys)
+surveys$species # the species column
 ```
 
 ### Challenge
@@ -193,6 +194,49 @@ head_surveys <- surveys[1:6, ] # surveys[1:6, ] is equivalent to head(surveys)
 surveys_by_10 <- surveys[seq(10, nrow(surveys), by=10), ]
 ```
 --->
+
+# Logical indexing
+
+Logical values can be used to select a subset of the data. 
+
+```{r, results='show', purl=FALSE}
+colors <- c("red", "yellow", NA, "blue")
+colors[c(TRUE, FALSE, FALSE, TRUE)]    # elements corresponding TRUE positions
+```
+
+This can be useful when you have a function that produces TRUE/FALSE and you can then use this to subset your data. For example, removing NA (null) values.
+
+```{r, results='show', purl=FALSE}
+is.na(colors)             # logical vector TRUE if position is NA
+!is.na(colors)            # not (!) missing, FALSE if position is NA
+colors[!is.na(colors)]    # colours that are not missing (NA)
+```
+
+# Subsetting data frames based on a logic statement
+```{r, results='show', purl=FALSE}
+example_data <- data.frame(fruit=c("apple", "mango", "banana",  "coconut"),
+                           quantity=c(45, 8, 12, 2))
+
+example_data$quantity > 10                # quantity is greater than 10 (TRUE/FALSE)
+example_data[example_data$quantity > 10,] # rows where quantity is greater than 10
+```
+
+# Sorting data frames
+```{r, results='show', purl=FALSE}
+fruit_info <- data.frame(fruit=c("apple", "mango", "banana",  "coconut"),
+                           quantity=c(45, 8, 12, 2))
+
+order(fruit_info$quantity)               # The order of the quantity column
+fruit_info[order(fruit_info$quantity),]  # sort fruit_info by quantity column
+```
+
+### Challenge
+
+1. From the surveys data frame, print a copy of the weights, without any NA values.
+
+2. Produce a copy of the surveys data frame with only rows that contain weights.
+
+3. Sort the entire fruit_info data frame by reverse (descending) alphabetical order of the fruit names. Hint: args(order).
 
 Previous: [Starting with data](02-starting-with-data.html)  Next: [Manipulating data](04-manipulating-data.html)
 
