@@ -285,5 +285,43 @@ barplot(surveys_summary$mean_wgt, horiz=TRUE, las=1,
 dev.off()
 ```
 
+# More analysis options: libraries
+
+In our lessons so far, we've used many of R's built-in functions. These are enough for a lot of data manipulation and basic statistics.
+
+R also has many packages available that provide extra functions.Many of these packages might already be installed on your computer, and others you can easily install. Many packages can be found in the [CRAN repository](http://cran.r-project.org/web/packages/), which you can automatically access from R with the `install.packages()` function.
+
+For instance, to install the `RSQLite` package, run
+```{r, eval=FALSE}
+install.packages("RSQLite")
+```
+
+This package provides functions to query an SQLite database, like the `portal_mammals.sqlite` database we worked with previously. Once the package is installed we can load it with the `library()` function:
+```{r, results='hide', warning=FALSE}
+library("RSQLite")
+```
+
+Now the functions in this library are available for us to use. We can get some information on the package contents with
+```{r, eval=FALSE}
+library(help="RSQLite")
+```
+
+And as always, we can look up help on individual functions. If you have loaded the library, try `help(dbSendQuery)`.
+
+We can now use the `RSQLite` functions to try querying the database:
+```{r results='show', warning=FALSE}
+# Open the file (connect to the database)
+mammals_db <- dbConnect(SQLite(), "data/portal_mammals.sqlite")
+# See what tables are in it
+dbListTables(mammals_db)
+# Run an SQL query
+queryResult <- dbSendQuery(mammals_db, 'SELECT DISTINCT genus FROM species WHERE taxa="Rodent"')
+# Fetch will get the results as a data frame
+fetch(queryResult, n=10)
+# Close the file (disconnect from the database)
+dbDisconnect(mammals_db)
+```
+
+
 Previous: [Manipulating data](04-manipulating-data.html)  Next: [Getting help](06-getting-help.html)
 
