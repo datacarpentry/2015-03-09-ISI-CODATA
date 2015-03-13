@@ -278,7 +278,7 @@ dev.off()
 
 In our lessons so far, we've used many of R's built-in functions. These are enough for a lot of data manipulation and basic statistics.
 
-R also has many packages available that provide extra functions.Many of these packages might already be installed on your computer, and others you can easily install. Many packages can be found in the [CRAN repository](http://cran.r-project.org/web/packages/), which you can automatically access from R with the `install.packages()` function.
+R also has many packages available that provide extra functions. Many of these packages might already be installed on your computer, and others you can easily install. Many packages can be found in the [CRAN repository](http://cran.r-project.org/web/packages/), which you can automatically access from R with the `install.packages()` function.
 
 For instance, to install the `RSQLite` package, run
 ```{r, eval=FALSE}
