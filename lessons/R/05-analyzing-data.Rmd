@@ -35,11 +35,14 @@ unique(surveys$species)
 ```
 
 The function `table()`, tells us how many of each species we have:
-
 ```{r, purl=FALSE}
 table(surveys$species)
 ```
 
+We can create a table with more than one field. Let's see how many of each species were captured in each plot:
+```{r, purl=FALSE}
+table(surveys$plot, surveys$species)
+```
 R has a lot of built in statistical functions, like `mean()`, `median()`,
 `max()`, `min()`. Let's start by calculating the average weight of all the
 animals using the function `mean()`:
