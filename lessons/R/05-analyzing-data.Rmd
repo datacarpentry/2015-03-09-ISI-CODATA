@@ -150,17 +150,6 @@ tapply(columns_to_do_the_calculations_on, factor_to_sort_on, function)
 If we want to calculate the mean for each species (using the complete dataset):
 
 ```{r, purl=FALSE}
-tapply(surveys_complete$wgt, surveys_complete$species, mean)
-```
-
-This produces some `NA` because R "remembers" all species that were found in the
-original dataset, even if they didn't have any weight data associated with them
-in the current dataset. To remove the `NA` and make things clearer, we can
-redefine the levels for the factor "species" before calculating the means. Let's
-also create an object to store these values:
-
-```{r, purl=FALSE}
-surveys_complete$species <- factor(surveys_complete$species)
 species_mean <- tapply(surveys_complete$wgt, surveys_complete$species, mean)
 ```
 
@@ -168,8 +157,8 @@ species_mean <- tapply(surveys_complete$wgt, surveys_complete$species, mean)
 
 1. Create new objects to store: the standard deviation, the maximum and minimum
    values for the weight of each species
-1. How many species do you have these statistics for?
-1. Create a new data frame (called `surveys_summary`) that contains as columns:
+2. How many species do you have these statistics for?
+3. Create a new data frame (called `surveys_summary`) that contains as columns:
    * `species` the 2 letter code for the species names
    * `mean_wgt` the mean weight for each species
    * `sd_wgt` the standard deviation for each species
