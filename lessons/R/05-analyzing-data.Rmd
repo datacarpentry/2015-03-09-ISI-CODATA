@@ -74,8 +74,19 @@ might be best to remove all observations that contain missing data. The function
 observation:
 
 ```{r, purl=FALSE}
-surveys_complete <- surveys[complete.cases(surveys), ]
+surveys_complete <- surveys[complete.cases(surveys), ]  # remove rows with any missing values
 ```
+
+After we remove rows with missing values, we need to redo the factors. This is because R "remembers" all species that were found in the
+original dataset, even though we have now removed them.
+
+```{r, purl=FALSE}
+str(surveys$species)           # factors in the original surveys$species
+str(surveys_complete$species)  # factors in the subset surveys_complete$species (many are not actually present in the column anymore)
+surveys_complete$species <- factor(surveys_complete$species)  # redo factors on this subset
+str(surveys_complete$species)  # factors in the subset surveys_complete$species after refactoring
+```
+
 
 <!--- need to cover negation, and vector operations for this...
 If you want to remove only the observations that are missing data for one
@@ -85,6 +96,8 @@ dataset that only contains individuals that have been weighted:
 ```{r, purl=FALSE}
 surveys_with_weights <- surveys[!is.na(surveys$weight), ]
 ```
+
+
 --->
 
 ### Challenge
