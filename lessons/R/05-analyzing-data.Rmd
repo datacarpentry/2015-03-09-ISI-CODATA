@@ -65,7 +65,8 @@ In some cases, it might be useful to remove the missing data from the
 vector. For this purpose, R comes with the function `na.omit`:
 
 ```{r, purl=FALSE}
-wgt_noNA <- na.omit(surveys$wgt)
+wgt_noNA <- na.omit(surveys$wgt) 
+# Note: this is shorthand for wgt_noNA <- surveys$wgt[!is.na(surveys$wgt)]
 ```
 
 For some applications, it's useful to keep all observations, for others, it
