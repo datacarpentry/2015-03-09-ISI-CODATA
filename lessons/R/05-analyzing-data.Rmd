@@ -13,9 +13,9 @@ surveys <- read.csv(file="../../data/biology/surveys.csv")
 >
 > * understand how to deal with missing data
 > * being able to generate summary statistics from the data
-> * calculate basic statistics across a levels of a factor (here species)
-> * generate plot from the data using the average weights of the animals as an
->   example
+> * calculate basic statistics across a levels of a factor
+> * generate a plot from the summary statistics
+> * write out a data frame as CSV
 
 
 # Calculating statistics

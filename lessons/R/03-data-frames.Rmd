@@ -18,6 +18,7 @@ surveys <- read.csv(file="../../data/biology/surveys.csv")
 > * understand the concept of a `data.frame`
 > * use sequences
 > * know how to access any element of a `data.frame`
+> * use sorting and indexing to sort the rows of a `data.frame`
 
 # What are data frames?
 
@@ -227,7 +228,8 @@ fruit_info <- data.frame(fruit=c("apple", "mango", "banana",  "coconut"),
                            quantity=c(45, 8, 12, 2))
 
 order(fruit_info$quantity)               # The order of the quantity column
-fruit_info[order(fruit_info$quantity),]  # sort fruit_info by quantity column
+correct_row_order <- order(fruit_info$quantity)  
+fruit_info[correct_row_order,]  # sort fruit_info by quantity column
 ```
 
 ### Challenge

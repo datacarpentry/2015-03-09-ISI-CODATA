@@ -75,13 +75,14 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 </div>
 <div id="getting-a-modified-version-of-a-data-frame" class="section level1">
 <h1>Getting a modified version of a data frame</h1>
-<div id="subsetting-data" class="section level2">
-<h2>Subsetting data</h2>
+<div id="subsetting-data-with-the-subset-function" class="section level2">
+<h2>Subsetting data with the subset function</h2>
 <p>In particular for larger datasets, it can be tricky to remember the column number that corresponds to a particular variable. (Are species names in column 5 or 7? oh, right… they are in column 6). In some cases, in which column the variable will be can change if the script you are using adds or removes columns. It’s therefore often better to use column names to refer to a particular variable, and it makes your code easier to read and your intentions clearer.</p>
 <p>You can do operations on a particular column, by selecting it using the <code>$</code> sign. In this case, the entire column is a vector. For instance, to extract all the weights from our datasets, we can use: <code>surveys$wgt</code>. You can use <code>names(surveys)</code> or <code>colnames(surveys)</code> to remind yourself of the column names.</p>
 <p>In some cases, you may want to select more than one column. You can do this using square brackets: <code>surveys[, c(&quot;wgt&quot;, &quot;sex&quot;)]</code>.</p>
 <p>When analyzing data, though, we often want to look at partial statistics, such as the maximum value of a variable per species or the average value per plot.</p>
-<p>One way to do this is to select the data we want, and create a new temporary array, using the <code>subset()</code> function. For instance, if we just want to look at the animals of the species “DO”:</p>
+<p>We’ve already seen how to select data with logical indexing, using a logical expression such as <code>surveys[surveys$species==&quot;DO&quot;,]</code>.</p>
+<p>Another nice way to do this is the <code>subset()</code> function. For instance, if we just want to look at the animals of the species “DO”:</p>
 <pre class="r"><code>surveys_DO &lt;- subset(surveys, species == &quot;DO&quot;)</code></pre>
 <div id="challenge" class="section level3">
 <h3>Challenge</h3>
@@ -94,6 +95,9 @@ surveys_DO$month[2] &lt;- 8</code></pre>
 <li>Use the function <code>subset</code> twice to create a <code>data.frame</code> that contains all individuals of the species “DM” that were collected in 2002.</li>
 </ol>
 <p><em>Question: How many individuals of the species “DM” were collected in 2002?</em></p>
+<ol start="3" style="list-style-type: decimal">
+<li>The logical operators in R are <code>&amp;</code> (to mean AND), <code>|</code> (to mean OR), and <code>!</code> (to mean NOT). Use the <code>&amp;</code> operator to find the same data subset as in the previous question, without needing to use the <code>subset()</code> function more than once.</li>
+</ol>
 </div>
 </div>
 <div id="adding-a-column-to-our-dataset" class="section level2">
