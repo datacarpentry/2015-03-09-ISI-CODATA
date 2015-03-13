@@ -106,11 +106,11 @@ surveys_with_weights <- surveys[!is.na(surveys$weight), ]
 use the function `length()` (e.g., `length(surveys$wgt)`). Using `length()`, how
 many animals have not had their weights recorded?
 
-1. What is the median weight for the males?
+2. What is the median weight for the males?
 
-1. What is the range (minimum and maximum) weight?
+3. What is the range (minimum and maximum) weight?
 
-1. Bonus question: what is the standard error for the weight? (hints: there is
+4. Bonus question: what is the standard error for the weight? (hints: there is
    no built-in function to compute standard errors, and the function for the
    square root is `sqrt()`).
 
