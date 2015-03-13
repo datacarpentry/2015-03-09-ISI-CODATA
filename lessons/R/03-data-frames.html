@@ -61,6 +61,7 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <li>understand the concept of a <code>data.frame</code></li>
 <li>use sequences</li>
 <li>know how to access any element of a <code>data.frame</code></li>
+<li>use sorting and indexing to sort the rows of a <code>data.frame</code></li>
 </ul>
 </blockquote>
 <div id="what-are-data-frames" class="section level1">
@@ -229,7 +230,8 @@ example_data$quantity &gt; 10                # quantity is greater than 10 (TRUE
 
 order(fruit_info$quantity)               # The order of the quantity column</code></pre>
 <pre><code>## [1] 4 2 3 1</code></pre>
-<pre class="r"><code>fruit_info[order(fruit_info$quantity),]  # sort fruit_info by quantity column</code></pre>
+<pre class="r"><code>correct_row_order &lt;- order(fruit_info$quantity)  
+fruit_info[correct_row_order,]  # sort fruit_info by quantity column</code></pre>
 <pre><code>##     fruit quantity
 ## 4 coconut        2
 ## 2   mango        8
