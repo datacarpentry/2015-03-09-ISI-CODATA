@@ -253,7 +253,7 @@ also with loading the generated data into other programs such as R. We
 can control this by adding `.headers on` before the query.
 
 Now that we know how to script the database import and SQL subsetting,
-we add the other csV file imports and replace the query in the sqlite
+we add the other csv file imports and replace the query in the sqlite
 script with the one that subsets the data in the way that enables us
 to aggregate them in R by genus rather than species.
 
